@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务6 杂志排版</title>
+    <style>
+        body,p,div,img{padding: 0;margin: 0;}
+        .main{width: 980px;height: 1386px; margin: 0 auto;}
+        .content{width: 892px;}
+        .top_data{border-bottom: 2px solid #938e8c;}
+        .red_block{
+            width: 110px;
+            height: 61px;
+            background: #d45d5c;
+            font-family:Heiti TC;
+            font-size: 12px;
+            color: #ffffff;
+            display:table-cell;
+            vertical-align:bottom;
+            text-align: center;
+        }
+        .data{
+            float: right;
+            color: #d45d5c;
+            font-size: 12px;
+            margin-top: -17px;;
+        }
+        .banner_contend{margin-top: 30px;}
+        .banner{
+            float: left;
+            position: relative;
+            width: 641px;
+            height: 301px;
+            background: url("../img/task_06_banner.png");
+        }
+        .banner_m_l,.banner_m_r{width: 191px;height: 301px;position: absolute; z-index: 5;}
+        .banner_m_r{background: rgba(212,93,92,0.5);left: 450px;}
+        .banner_m_l{background: rgba(117,184,107,0.5);}
+        .title_top{float: right;width: 203px; border-top: 2px solid #cc8091;}
+        .top_about{float: left; font-family:"微软雅黑";font-size: 24px; border-bottom: 2px solid #000000;height: 45px;}
+        .top_about:first-letter{font-size:1.5em;}
+        .title_explain{font-size: 12px;color: #676767;font-family: "KaiTi";line-height: 10px;}
+        .num{font-size:116px;color:#75b86b;font-family: "微软雅黑";font-style: italic; height: 130px;}
+        .diff_size{float: left; font-family: "微软雅黑";color: #cc8091;height: 70px; line-height:70px;}
+        .diff_s{float: left; font-family: "微软雅黑";color: #cc8091;line-height:15px;padding-top: 18px;}
+        .big{font-size: 55px;}
+        .mid{font-size: 21px;}
+        .cler{clear: both;}
+        .what{width: 40%}
+        .www{margin-top: 350px;}
+        .when,.what,.how{float: left;}
+        .what div{color: #75b86b; text-decoration: underline; font-size: 16px;}
+        .when div{color: #d2994f; text-decoration: underline; font-size: 16px;}
+        .how div{color: #cc7680; text-decoration: underline; font-size: 16px;}
+        .when p,.what p,.how p{padding-right: 20px;padding-top:10px;font-size: 12px;color: #231815;line-height: 16px;opacity:0.7;}
+        .when{width: 30%}
+        .how{width: 30%}
+        .bottom{margin-top: 280px; height: 650px;border-bottom: 2px solid #11456b; }
+        .botomm_l{float: left; width: 415px;}
+        .b_title{font-family: "Heiti TC";font-weight: bold; border-bottom: 2px solid #11456b;height: 155px;}
+        .the_y{font-size: 72px;font-style: italic;color: #f5e327;}
+        .en_title{font-size: 42px;color: #11456b;line-height: 30px;}
+        .c_title{font-size: 33px;color: #11456b;line-height: 30px;margin-top: 10px;}
+        .artcle{padding: 5px; margin-top: 20px; font-size: 12px;color: #767777;font-family: "Songti SC";line-height: 16px;}
+        .artcle p:first-letter{
+            float: left;
+            font-size:70px;
+            padding-right:5px;
+            padding-top: 20px;
+            padding-bottom: 25px;
+            text-transform:uppercase;}
+        .artcle img{display: inline-block;float: right;padding:15px 0 15px 15px; }
+        .botomm_r{float: right;}
+        .b_r_imgmodal{background: rgba(0,0,0,0.5);width: 458px;height: 61px; position: absolute;top: 196px;}
+        .img_r_b{width: 458px;height: 257px;position: relative;}
+        .modal_text{color: #75b86b;font-style: italic;font-size: 12px;line-height: 40px; border-left: 3px solid #72b16a;margin-top: 10px;margin-left: 40px;padding-right: 20px;}
+        .modal_text span{color: #ffffff;font-size: 26px;font-style: normal;}
+        .zuihouyigekuang{width: 458px;height: 330px;background: #eeedd6;margin-top: 30px;}
+        .mulu{font-size: 16px;font-family: "Songti SC";text-align: left;line-height: 20px;list-style:decimal;position: relative;}
+        .mulu li{ padding-top:20px;height: 30px;list-style: square;}
+        .mulu li span{font-size: 12px;}
+        .b_red{float: left;width: 260px;height: 160px;background: #d45d5c;margin-bottom: 1px;position: absolute;top: 1147px;}
+        .lshuoming{margin-left: 270px; padding: 10px 20px; line-height: 16px;}
+        .lshuoming div{font-size: 14px;font-family: "Heiti TC";font-style: italic; }
+        .lshuoming div span{color: #d45d5c;font-size: 3em;padding-right: 20px;}
+        .yinhaohao{font-size: 70px;padding-top: 20px;padding-left: 130px;text-align: right;}
+        .zero{font-family: "微软雅黑";font-size: 110px;color: #ffffff;float: left;padding: 0 10px;}
+        .shuxian{width: 2px;height: 86px;background: #ffffff;float: left;margin-top: 37px;}
+        .wenzi{color: #ffffff;margin-top: 34px;margin-left: 100px;}
+        .dahao{font-size: 21px;font-style: italic;line-height: 24px;}
+        .xiaohao{font-size: 12px;font-style: normal;line-height: 6px;}
+        .dididid{font-size: 12px;color: #d45d5c;float: right;}
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="content">
+        <div class="top_data">
+            <div class="red_block">
+                ife.baidu.com
+            </div>
+            <div class="data">2016.03</div>
+        </div>
+        <div class="banner_contend">
+            <div class="title_top">
+                <div class="top_about">ABOUT</div>
+                <div class="top_about">TECHNOLOGE</div>
+                <div class="cler"></div>
+                <div class="title_explain">about technology about technology about technology about technology</div>
+                <div class="num">700</div>
+                <div class="diff_size">
+                    <span class="big">3.2</span>
+                </div>
+                <div class="diff_s">
+                    <p class="mid"><b> css</b><br><span class="ccc">aaaa</span></p>
+                </div>
+            </div>
+            <div class="banner">
+                <div class="banner_m_l"></div>
+                <div class="banner_m_r"></div>
+                <div class="www">
+                    <div class="what">
+                        <div>What</div>
+                        <p>前端对于网站来说，通常是指，网站的前台部分包括网站的表现层和结构层。因此前端技术一般分为前端设计和前端开发，前端设计一般可以理解为网站的视觉设计，前端开发则是网站的前台代码实现，包括基本的HTML和CSS以及JavaScript/ajax，现在最新的高级版本HTML5、CSS3，以及SVG等。</p>
+                    </div>
+                    <div class="when">
+                        <div>When</div>
+                        <p>前端对于网站来说，通常是指，网站的前台部分包括网站的表现层和结构层。因此前端技术一般分为前端设计和前端开发，前端设计一般可以理解为网站的视觉设计，前端开发则是网站的前台代码实现，包括基本的HTML和CSS以及JavaScript/ajax，现在最新的高级版本HTML5、CSS3，以及SVG等。</p>
+                    </div>
+                    <div class="how">
+                        <div>How</div>
+                        <p>前端对于网站来说，通常是指，网站的前台部分包括网站的表现层和结构层。因此前端技术一般分为前端设计和前端开发，前端设计一般可以理解为网站的视觉设计，前端开发则是网站的前台代码实现，包括基本的HTML和CSS以及JavaScript/ajax，现在最新的高级版本HTML5、CSS3，以及SVG等。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cler"></div>
+            <div>
+                <div></div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="botomm_l">
+                <div class="b_title">
+                    <div><span class="the_y">THE</span><span class="en_title">&nbsp;&nbsp;TECHNOLOGE OF FRONT</span></div>
+                    <div class="c_title">前端技术领域</div>
+                </div>
+                <div class="artcle">
+                    <p>
+                        标签，现下划线方法教程，通过案例方式让大家作为两种对文字加下划线样式.使用css div如何给文字添加下划线样式呢？使用css对文字字体添加下划线样式方法教程.
+                        对字体文字加下划线样式，有两种方法，一直直接使用html下划线标签，另外一种是使用CSS下划线样式.接下来为大家介绍对文字字体实现下划线方法教程，<img src="../img/task_6_wei_artcle.png" alt="">通过案例方式让大家作为两种对文字加下划线样式。
+                        使用css div如何给文字添加下划线样式呢？使用css对文字字体添加下划线样式方法教程.对字体文字加下划线样式，有两种方法，一直直接使用html下划线标签，另外一种是使用CSS下划线样式.接下来为大家介绍对文字字体实现下划线方法教程，通过案例方式让大家作为两种对文字加下划线样式.使用css div如何给文字添加下划线样式呢？使用css对文字字体添加下划线样式方法教程.对字体文字加下划线样式，有两种方法，一直直接使用html下划线标签，另外一种是使用CSS下划线样式.接下来为大家介绍对文字字体实现下划线方法教程，通过案例方式让大家作为两种对文字加下划线样式。
+                        作为两种对文字加下划线样式.使用css div如何给文字添加下划线样式呢？使用css对文字字体添加下划线样式方法教程.对字体文字加下划线样式，有两种方法，一直直接使用html下划线标签，另外一种是使用CSS下划线样式.接下来为大家介绍对文字字体实现下划线方法教程，通过案例方式让大家作为两种对文字加下划线样式。
+                    </p>
+                </div>
+            </div>
+
+            <div class="botomm_r">
+                <div class="img_r_b">
+                    <img src="../img/task_6_b_r.png " alt="">
+                    <div class="b_r_imgmodal">
+                        <div class="modal_text"><span>&nbsp;前端技术</span> 前端技术前端技术</div>
+                    </div>
+                </div>
+                <div class="zuihouyigekuang">
+                    <ul class="mulu">
+                        <li>前端前端前端前端前端前端前端...................<span>前端</span> </li>
+                        <li>前端前端前端...............................<span>前端前</span></li>
+                        <li>前端前端前端前端前端前端前端前端前端前端前端.....<span>前端</span></li>
+                    </ul>
+                    <div class="b_red">
+                        <div class="zero">0</div>
+                        <div class="shuxian"></div>
+                        <div class="wenzi">
+                            <span class="dahao">ONE TWO<br>THREE FOUR</span>
+                            <span class="xiaohao">nihao nihao nihao nihao nihao nihao</span>
+                        </div>
+                    </div>
+                    <div class="lshuoming">
+                        <div>
+                            <span>"</span>hello hello hello helloaaao hello hello hello hello hellonnnan nadhjakfghsfdagsfdk yingshengshengde<br><span class="yinhaohao">"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dididid">ife.baidu.com</div>
+    </div>
+</div>
+</body>
+</html>
