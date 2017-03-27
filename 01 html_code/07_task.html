@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task7 新视界</title>
+    <style>
+        body,p,li,div,li,ul{padding: 0;margin: 0;font-family:"微软雅黑";list-style: none;}
+        .main{width: 1280px;border: 1px solid #000000;margin: 0 auto;}
+        .div_title{height: 40px;}
+        .title_name{line-height: 40px;color: #d45d5c;padding-left: 80px;float: left;}
+        .title_denglu{width: 150px;color: #d45d5c;float: right;line-height: 40px;text-align: center;}
+        .lianjie{float: right;}
+        .li_active{border-bottom: 5px solid #d45d5c;}
+        .lianjie li{width: 100px;float: right;line-height: 40px;text-align: center;}
+        .banner_title{width: 400px;height: 450px;position: absolute;bottom: 0px;left: 350px;}
+        .da_title{font-size: 50px;color: #ffffff;}
+        .con_title{font-size: 14px;color: #ffffff;padding-left: 10px;}
+        .tiyan_title{width: 200px;background: #d45d5c;color: #ffffff;height: 40px;line-height: 40px;text-align: center;margin-top: 20px;margin-left: 20px;font-size: 20px;}
+        .hong_li{width: 25%;float: left;text-align: center;margin-top: 30px;font-size: 12px;margin-bottom: 20px;}
+        .shang_logo{border-right: 2px solid #333333;margin-bottom: 50px;}
+        .guanyushijie{height: 240px;background: #eeeeee;}
+        .clear{clear: both;}
+        .shijie_logo{text-align: center;font-size: 60px;color: #d45d5c;padding: 25px 0;}
+        .shijie_text{font-size: 40px;text-align: center;color: #999999;}
+        .map{position: relative;}
+        .map_ditu{position: absolute;top: 0px;width: 100%;}
+        .map_title{font-size: 30px;line-height: 60px;color: #ffffff;text-align: center;height: 60px;padding-top: 30px;}
+        .map_con{font-size: 12px;color: #ffffff;text-align: center;}
+        .map_li{padding-left: 200px;margin-top: 50px;}
+        .map_li li{width: 160px;float: left;text-align: center; margin: 0px 20px;}
+        .map_li li input,.map_li li select{width: 160px;height: 30px;border: 1px solid #d45d5c;border-radius: 0px;!important;}
+        .serch{color: #ffffff;text-align: center;}
+        .picture_tupian{width: 220px;height: 330px;border: 1px solid #eeeeee;text-align: center;}
+        .picture_tupian img{margin-top: 8px;}
+        .huodong{padding-left: 60px;height: 520px;background: #f8f8f8;}
+        .huodong_neirong{float: left;margin: 70px 30px 120px;;}
+        .neirong{width: 220px;height: 330px;text-align: center;}
+        .beijing{font-size: 16px; line-height: 20px;padding-top: 10px;}
+        .beijingjieshao{font-size: 12px;color: #999999;}
+        .xinshijie_pic{width: 851px;height: 567px;position: relative;float: left;}
+        .xinshijie_wenzi{width: 851px;height: 567px;position: absolute;top: 0px;text-align: center;color: #ffffff;}
+        .xinshijie_sz{margin-top: 200px;font-size: 30px;}
+        .time{font-size: 80px;font-weight: bold;}
+        .baaa{line-height: 30px;font-size: 12px;}
+        .xiaosanjiao{height:0px;width:0px;position: absolute;top:280px;left:816px;background: #ffffff;
+            border-top: 10px solid rgba(0,0,0,1);
+            border-right: 25px solid white;
+            border-bottom: 10px solid rgba(0,0,0,1);
+            border-left: 10px solid rgba(0,0,0,1);
+        }
+        .new_word{float: right;width: 428px;padding-top: 120px;text-align: center;}
+        .new_word_aaa{font-size: 30px;}
+        .new_word_aaa span{color: #d45d5c;}
+        .new_word p{padding: 10px 50px; font-size: 12px;color: #999999;line-height: 20px;}
+        .more{margin-top: 30px;color: #d45d5c;border: 1px solid #d45d5c;width: 100px;height: 30px;line-height: 30px;margin-left: 160px;}
+        .new_word_aaa{font-size: 20px;padding-top: 30px;}
+        .xinshidai{height: 400px;}
+        .wenzi{width: 849px;float: left;height: 521px;}
+        .wenzi_l{width: 50%;float: left;height: 521px; text-align: center;}
+        .wenzi_r{background: #d45d5c; text-align: center;color: #ffffff;}
+        .renrenren{float: right;}
+        .lianxiwomen{height: 200px;background: #32363e;text-align: center;padding: 50px 0px;color: #ffffff;}
+        .lianxi{font-size: 30px;}
+        .kuandu{width: 500px;margin-left: 400px;}
+        .pppp{font-size: 12px;}
+        .caaaa{width: 500px;margin-top: 30px;}
+        .caaaa input{width: 70%;height: 30px;margin-top: 2px;}
+        .zhiyuanzhe{text-align: center;font-size: 30px;padding: 50px;}
+        .zhiyuanzhetianbao{color: #333333;font-size: 16px;}
+        .zhiyuanzheneirong{width: 800px;margin: 0 auto;height: 300px;}
+        .zhiyuanzheneirong_l{float: left; width: 300px;}
+        .zhiyuanzheneirong_r{float: left;padding-left: 50px;}
+        .zhiyuanzheneirong_l div{color: #cccccc;}
+        .ccc{font-size: 16px;}
+        .amamama{width: 380px;height: 80px;background: #cccccc;margin-top: 80px;margin-left: 10px;}
+        .aallll{width: 380px;height: 40px;background: #cccccc;margin-top: 10px;margin-left: 10px;text-align: center;line-height: 40px;}
+        .mmmm{float: left;margin: 10px;width: 180px;background: #cccccc;height: 30px;line-height: 30px;text-align: center;}
+        .aaaaaaa{float: left;margin: 10px;width: 180px;background: #cccccc;height: 30px;line-height: 30px;text-align: center;}
+        .caaaa span{display:inline-block;width: 28%;height: 38px;background: #cccccc;line-height: 30px;}
+        .footer{height: 50px;background: #333333;color: #ffffff;padding-left: 50px;font-size:12px;line-height: 50px;}
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="div_title">
+        <div class="title_name">新世界</div>
+        <div class="title_denglu">登录</div>
+        <ul class="lianjie">
+            <li>关于我们</li>
+            <li>爱心社区</li>
+            <li>项目介绍</li>
+            <li>最新活动</li>
+            <li class="li_active">首页</li>
+        </ul>
+    </div>
+    <div class="div_banner">
+        <div>
+            <img src="../img/task_07_shang.png" alt="">
+            <div class="banner_title">
+                <div class="da_title">Time of new life</div>
+                <p class="con_title">新时代，新青年，新希望，<br>编不出来了</p>
+                <div class="tiyan_title">开始体验</div>
+            </div>
+        </div>
+    </div>
+    <div class="li_hong">
+        <ul>
+            <li class="hong_li">
+                <div><img src="../img/task_7hongli.png" alt=""></div>
+                <div class="shang_logo">没错这就是一段说明而已<br>还有一段段段哈哈哈</div>
+            </li>
+            <li class="hong_li">
+                <div><img src="../img/task_7hongli.png" alt=""></div>
+                <div class="shang_logo">没错这就是一段说明而已<br>还有一段段段哈哈哈</div>
+            </li>
+            <li class="hong_li">
+                <div><img src="../img/task_7hongli.png" alt=""></div>
+                <div class="shang_logo">没错这就是一段说明而已<br>还有一段段段哈哈哈</div>
+            </li>
+            <li class="hong_li">
+                <div><img src="../img/task_7hongli.png" alt=""></div>
+                <div class="">没错这就是一段说明而已<br>还有一段段段哈哈哈</div>
+            </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="guanyushijie">
+        <div class="shijie_logo">一本书</div>
+        <p class="shijie_text">关于新世界，你还不知道什么呢？</p>
+    </div>
+    <div class="map">
+        <img src="../img/map.png" alt="">
+        <div class="map_ditu">
+            <div class="map_city">
+                <div class="map_title">查找新世界城市活动信息</div>
+                <p class="map_con">查找新世界城市活动信息，查找新世界城市活动信息</p>
+                <ul class="map_li">
+                    <li>
+                        <input type="text" value="中国">
+                    </li>
+                    <li>
+                        <select name="city" id="city">
+                            <option value="北京">北京</option>
+                            <option value="上海">上海</option>
+                            <option value="天津">天津</option>
+                        </select>
+                    </li>
+                    <li>
+                        <input type="text" value="城市">
+                    </li>
+                    <li>
+                        <input class="serch" type="text" value="搜索" style="background: #d45d5c">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="huodong">
+        <div class="huodong_neirong">
+            <div class="neirong">
+                <div class="picture_tupian">
+                    <img src="../img/task_7pichuodong.png" alt="">
+                </div>
+                <div class="beijing">北京活动</div>
+                <p class="beijingjieshao">新社区大型展览</p>
+            </div>
+        </div>
+        <div class="huodong_neirong">
+            <div class="neirong">
+                <div class="beijing">北京活动</div>
+                <p class="beijingjieshao">新社区大型展览</p>
+                <div class="picture_tupian">
+                    <img src="../img/task_7pichuodong.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="huodong_neirong">
+            <div class="neirong">
+                <div class="picture_tupian">
+                    <img src="../img/task_7pichuodong.png" alt="">
+                </div>
+                <div class="beijing">北京活动</div>
+                <p class="beijingjieshao">新社区大型展览</p>
+            </div>
+        </div>
+        <div class="huodong_neirong">
+            <div class="neirong">
+                <div class="beijing">北京活动</div>
+                <p class="beijingjieshao">新社区大型展览</p>
+                <div class="picture_tupian">
+                    <img src="../img/task_7pichuodong.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="xinshijie">
+        <div class="xinshijie_pic">
+            <img src="../img/task_7renjiao.png" alt="">
+            <div class="xinshijie_wenzi">
+                <div class="xinshijie_sz">新世界</div>
+                <p class="time">TIME</p>
+                <div class="baaa">@新世界-北京</div>
+                <div class="baaa">2016.04.01</div>
+            </div>
+            <div class="xiaosanjiao"></div>
+        </div>
+        <div class="new_word">
+            <div class="new_word_aaa"> 新世界／ <span>01</span></div>
+            <p>一段文字，一段文字，一段文字，一段文字，一段文字，一段文字,一段文字，一段文字，一段文字，一段文字，一段文字，一段文字,一段文字，一段文字，一段文字，一段文字，一段文字，一段文字</p>
+            <div class="more">更多详情</div>
+            <div class="new_word_bbb">○○○</div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="xinshidai">
+        <div class="wenzi">
+            <div class="wenzi_l wenzi_r">
+                <div class="xinshijie_sz">新世界</div>
+                <p class="time">TIME</p>
+                <div class="baaa">@新世界-北京</div>
+                <div class="baaa">2016.04.01</div>
+            </div>
+            <div class="wenzi_l">
+                <div class="xinshijie_sz">新世界</div>
+                <p class="time">TIME</p>
+                <div class="baaa">@新世界-北京</div>
+                <div class="baaa">2016.04.01</div>
+            </div>
+        </div>
+        <div class="renrenren">
+            <img src="../img/task_7renrenren.png" alt="">
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="zhiyuanzhe">
+        <div>
+            就是文字说明
+            就是文字说明
+        </div>
+    </div>
+    <div class="zhiyuanzhetianbao">
+        <div class="zhiyuanzheneirong">
+            <div class="zhiyuanzheneirong_l">
+                <p class="ccc">shuomingshuoming</p>
+                <div>Napapa Tuntrakul（Pat），1986年1、《日冕之 恋》等多部电视剧。家庭生活Pat(全名Napapa Tuntrakul)。出生於1986年10月四号。爸爸是Mitt Tuntrakul 妈妈是Jutapat Lerkrasemsun ，她有四个兄弟姊妹 :Chet, Cha, Nong, Da...</div>
+                <p class="ccc">shuomingshuoming</p>
+                <div>Napapa Tuntrakul（Pat），1986年10Cha, Nong, Da...</div>
+                <p class="ccc">shuomingshuoming</p>
+            </div>
+            <div class="zhiyuanzheneirong_r">
+                <div class="mmmm">姓名</div>
+                <div class="mmmm">姓名</div><br>
+                <div class="aaaaaaa">姓名</div>
+                <div class="aaaaaaa">姓名</div>
+                <div class="amamama"></div>
+                <div class="aallll">tijiao</div>
+            </div>
+        </div>
+    </div>
+    <div class="lianxiwomen">
+        <div class="kuandu">
+            <div class="">
+                <div class="lianxi">联系我们</div>
+                <p class="pppp">清心感悟智慧语，不着世间名与利。学水处下纳百川，舍尽贡高我慢意。学有小成返哺根，愿铸一良心博客。诚心于此写经验，愿见文者得启发。</p>
+                <div class="caaaa"><input type="text" value="邮箱"><span>提交</span> </div>
+                <div class="">2016.04.01</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        @新世界
+    </div>
+</div>
+</body>
+</html>
