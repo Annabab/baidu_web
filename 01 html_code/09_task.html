@@ -1,85 +1,818 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>09 小微</title>
-    <style>
-        html,body{height: 100%}
-        body,p,li,ul{padding: 0px;margin: 0px;list-style: none;}
-        .top{height: 56px;background: #2189bf;position: relative;}
-        .logo{position: absolute;left: 40px;}
-        .search{position: absolute;top: 16px;left:500px;border-right: 10px;}
-        .search input{height: 20px;width: 240px;border: 1px solid #cccccc;border-right: 10px;}
-        .left{width: 25%;background: #2a2e3d;height: 100%;position: relative;float: left;}
-        .main{height: 100%;}
-        .touxiang{width:60px;height: 60px;border-radius: 50px;background: #eeeeee;position:absolute;left: 30px;top: 30px;}
-        .waiyuan{position: absolute;top: 24px;left: 24px;border: 2px solid #eeeeee;width: 68px;height: 68px;border-radius: 34px;}
-        .mingz{float: right;padding-right: 50px;line-height: 120px;color: #eeeeee;font-size: 16px;display: inline-block;}
-        .ul_li{text-align: center;padding-top: 120px;width: 66%;margin-left: 15%;color: #dddddd;}
-        .ul_li li{float: left;list-style: none;width: 49%;}
-        .leftll{border-right: 1px solid #eeeeee;}
-        .menu{margin-top: 66px; color: #999999;padding-left: 20px;}
-        .menu1{font-size: 16px;}
-        .menu li{line-height: 50px;}
-        .menu2{font-size: 14px;padding-left: 20px;}
-        .menu3{font-size: 12px; padding-left: 20px;}
-        .menu2 li{line-height: 30px;}
-        .active{height: 190px;}
-        .liang{color: #eeeeee;}
-        .right{float: right; width: 75%;height: 100%;}
-        .bread_bar{height: 20px;color: #999999;font-size: 10px;width: 100%;line-height: 20px;padding-left: 30px;}
-        .content{width: 100%;height: 100%;background: #eeeeee;padding: 20px 40px;}
-    </style>
+    <meta charset="utf-8">
+    <title>任务九：使用HTMLCSS实现一个复杂页面</title>
 </head>
+<link rel="stylesheet" href="../css/css09.css">
 <body>
-    <div class="top">
-        <div class="logo">
-            <img src="../img/task_9_logo.png" alt="">
-            <div class="search">
-                <input type="text" value="○">
+<!--导航栏开始-->
+<div class="nav">
+    <span class="logo" alt="logo"></span>
+    <div class="searchbar">
+        <span class="searchbar_img"></span>
+        <input type="text" name="serachbar" class="searchbar_input">
+    </div>
+    <div class="login"><span class="login_img"></span>登录</div>
+</div>
+<!--导航栏结束-->
+<!--主体开始-->
+<div class="main">
+    <!--侧边栏开始-->
+    <div class="sidebar">
+        <div class="sidebar_user">
+            <span class="sidebar_user_img"></span><span class="sidebar_list_text">
+					<span class="sidebar_user_name">AnAn</span>
+        </div>
+        <div class="sidebar_collectAndFans">
+            <div class="sidebar_collect">
+                <span class="sidebar_collect_num">666</span>
+                <span class="sidebar_collect_name">收藏</span>
+            </div>
+            <div class="sidebar_fans">
+                <span class="sidebar_fans_num">888</span>
+                <span class="sidebar_fans_name">粉丝</span>
             </div>
         </div>
-    </div>
-    <div class="main">
-        <div class="left">
-            <div class="touxiang"></div>
-            <div class="waiyuan"></div>
-            <div class="mingz"> hhhhhh</div>
-            <ul class="ul_li">
-                <li class="leftll">110<br>收藏</li>
-                <li>111<br>粉丝</li>
-            </ul>
-            <ul class="menu">
-                <li class="menu1 active">
-                    <span class="liang">个人报表</span>
-
-                    <ul class="menu2">
-                        <li>文件1</li>
-                        <li>
-                            <div class="liang">文件2</div>
-                            <ul class="menu3">
-                                <li class="liang">文档1</li>
-                                <li>文档2</li>
-                            </ul>
-                        </li>
-                        <li>文件3</li>
-                    </ul>
-                </li>
-                <li><span class=""></span>个人收藏</li>
-                <li><span class=""></span>我的分享</li>
-                <li><span class=""></span>图库</li>
-                <li><span class=""></span>成长记录</li>
-                <li><span class=""></span>账户信息</li>
-            </ul>
-        </div>
-        <div class="right">
-            <div class="bread_bar">C站／个人报表／文件1／文档1</div>
-            <div class="content">
-                <div class="xuanze">
-                    
+        <ul class="sidebar_menu">
+            <li class="sidebar_menu_list">
+                <span class="list_icon"></span>
+                <span class="sidebar_list_text" style="color:#fff">个人报表</span>
+                <div class="sidebar_listdown_part_list list_top">
+                    <span class="arrowright">></span><span class="listdown_icon"></span>文件一
                 </div>
-            </div>
-        </div>
+                <div class="sidebar_listdown_part_list list_middle" style="color:#fff">
+                    <span class="arrowbottom">></span><span class="listdown_icon"></span>文件二
+                    <div class="sidebar_listdown_part_morelist">
+                        <div class="sidebar_listdown_part_morelist_document" style="color:#fff">
+                            <span class="morelist_document"></span>文档一
+                        </div>
+                        <div class="sidebar_listdown_part_morelist_document">
+                            <span class="morelist_document" style="background-position:-22px -121px;"></span>文档二
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_listdown_part_list">
+                    <span class="arrowright">></span><span class="listdown_icon"></span>文件三
+                </div>
+            </li>
+            <li class="sidebar_menu_list">
+                <span class="list_icon"></span>
+                <span class="sidebar_list_text">个人收藏</span>
+            </li>
+            <li class="sidebar_menu_list">
+                <span class="list_icon"></span>
+                <span class="sidebar_list_text">我的分享</span>
+            </li>
+            <li class="sidebar_menu_list">
+                <span class="list_icon"></span>
+                <span class="sidebar_list_text">图库</span>
+            </li>
+            <li class="sidebar_menu_list">
+                <span class="list_icon"></span>
+                <span class="sidebar_list_text">成长记录</span>
+            </li>
+            <li class="sidebar_menu_list">
+                <span class="list_icon"></span>
+                <span class="sidebar_list_text">账户信息</span>
+            </li>
+        </ul>
     </div>
+    <!--侧边栏结束-->
+    <!--主体内容开始-->
+    <div class="content">
+        <!--路径提示开始-->
+        <div class="content_path">
+            <ul class="content_path_ul">
+                <li class="content_path_li">C站</li>
+                <li class="content_path_li">/&nbsp;个人报表</li>
+                <li class="content_path_li">/&nbsp;文件一</li>
+                <li class="content_path_li">/&nbsp;文档一</li>
+            </ul>
+        </div>
+        <!--路径提示结束-->
+        <!--文档内容开始-->
+        <div class="content_document">
+            <!--筛选查询开始-->
+            <div class="content_document_seek">
+                <span class="content_document_seek_exchange"></span>
+                <form>
+                    <div class="content_document_seek_item">
+                        查询项：
+                        <select class="content_document_seek_item_list">
+                            <option value="one">第一项</option>
+                            <option value="two">第二项</option>
+                            <option value="three">第三项</option>
+                            <option value="four">第四项</option>
+                            <option value="five">第五项</option>
+                        </select>
+                    </div>
+                    <div class="content_document_seek_get">
+                        买方：
+                        <select class="content_document_seek_get_list">
+                            <option value="one">小A</option>
+                            <option value="two">小B</option>
+                            <option value="three">小C</option>
+                            <option value="four">小D</option>
+                            <option value="five">小E</option>
+                        </select>
+                    </div>
+                    <div class="content_document_seek_sell">
+                        卖方：
+                        <select class="content_document_seek_sell_list">
+                            <option value="one">大A</option>
+                            <option value="two">大B</option>
+                            <option value="three" selected>大C</option>
+                            <option value="four">大D</option>
+                            <option value="five">大E</option>
+                        </select>
+                    </div>
+                    <div class="content_document_date_item">
+                        日期：
+                        <select class="content_document_seek_date_list">
+                            <option value="one">2017-04-01</option>
+                            <option value="two">2017-03-01</option>
+                            <option value="three">2017-02-01</option>
+                            <option value="four">2017-01-01</option>
+                            <option value="five">2016-12-01</option>
+                        </select>
+                    </div>
+                    <div class="content_document_seek_personnum">
+                        人数：
+                        <select class="content_document_seek_personnum_list">
+                            <option value="one">10人</option>
+                            <option value="two">9人</option>
+                            <option value="three">8人</option>
+                            <option value="four">7人</option>
+                            <option value="five">6人</option>
+                        </select>
+                    </div>
+                    <div class="content_document_seek_time">
+                        总耗时：
+                        <select class="content_document_seek_time_list">
+                            <option value="one">8人</option>
+                            <option value="two">7人</option>
+                            <option value="three">6人</option>
+                            <option value="four">5人</option>
+                            <option value="five">4人</option>
+                        </select>
+                    </div>
+                    <div class="content_document_seek_deal">
+                        成交项：
+                        <select class="content_document_seek_deal_list">
+                            <option value="one">10项</option>
+                            <option value="two">9项</option>
+                            <option value="three">8项</option>
+                            <option value="four">7项</option>
+                            <option value="five">6项</option>
+                        </select>
+                    </div>
+                    <div class="content_document_seek_searchbutton">搜索</div>
+                </form>
+            </div>
+            <!--筛选查询结束-->
+            <!--历史查询开始-->
+            <div class="content_document_historySearch">
+                <div class="content_document_historySearch_view">
+                    <ul class="content_document_historySearch_ul">
+                        <li class="content_document_historySearch_list">
+                            <span class="content_document_historySearch_list_line"></span>
+                            <span class="content_document_historySearch_listtime">10:00 am</span>
+									<span class="content_documebt_historySearch_listprice">
+										<span class="money">￥</span>1200
+									</span>
+                        </li>
+                        <li class="content_document_historySearch_list">
+                            <span class="content_document_historySearch_list_line"></span>
+                            <span class="content_document_historySearch_listtime">11:00 am</span>
+									<span class="content_documebt_historySearch_listprice">
+										<span class="money">￥</span>1300
+									</span>
+                        </li>
+                        <li class="content_document_historySearch_list">
+                            <span class="content_document_historySearch_list_line"></span>
+                            <span class="content_document_historySearch_listtime">12:00 am</span>
+									<span class="content_documebt_historySearch_listprice">
+										<span class="money">￥</span>1200
+									</span>
+                        </li>
+                        <li class="content_document_historySearch_list">
+                            <span class="content_document_historySearch_list_line"></span>
+                            <span class="content_document_historySearch_listtime">01:00 pm</span>
+									<span class="content_documebt_historySearch_listprice">
+										<span class="money">￥</span>1400
+									</span>
+                        </li>
+                        <li class="content_document_historySearch_list">
+                            <span class="content_document_historySearch_list_line"></span>
+                            <span class="content_document_historySearch_listtime">02:00 pm</span>
+									<span class="content_documebt_historySearch_listprice">
+										<span class="money">￥</span>1500
+									</span>
+                        </li>
+                        <li class="content_document_historySearch_list">
+                            <span class="content_document_historySearch_list_line"></span>
+                            <span class="content_document_historySearch_listtime">03:00 pm</span>
+									<span class="content_documebt_historySearch_listprice">
+										<span class="money">￥</span>1800
+									</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content_document_historySearch_prev"><</div>
+                <div class="content_document_historySearch_next">></div>
+                <div class="content_document_historySearch_title">
+                    <span class="content_document_historySearch_title_img"></span>
+                    <p class="content_document_historySearch_title_p">历史查询</p>
+                </div>
+
+            </div>
+            <!--历史查询结束-->
+            <!--成交指示器开始-->
+            <ul class="content_document_total">
+                <span class="content_document_total_title">2017年3月份统计</span>
+                <li class="content_document_total_num">
+                    <span class="content_document_total_num_line"></span>
+                    <span class="content_document_total_num_title">133311</span>
+                    <span class="content_document_total_num_volume">成交量</span>
+                    <span class="content_document_total_num_color"></span>
+                </li>
+                <li class="content_document_total_num">
+                    <span class="content_document_total_num_line"></span>
+                    <span class="content_document_total_num_title">133311</span>
+                    <span class="content_document_total_num_volume">成交量</span>
+                    <span class="content_document_total_num_color"></span>
+                </li>
+                <li class="content_document_total_num">
+                    <span class="content_document_total_num_line"></span>
+                    <span class="content_document_total_num_title">133311</span>
+                    <span class="content_document_total_num_volume">成交量</span>
+                    <span class="content_document_total_num_color"></span>
+                </li>
+                <li class="content_document_total_num">
+                    <span class="content_document_total_num_line"></span>
+                    <span class="content_document_total_num_title">133311</span>
+                    <span class="content_document_total_num_volume">成交量</span>
+                    <span class="content_document_total_num_color"></span>
+                </li>
+            </ul>
+            <!--成交指示器结束-->
+            <!--组项目部分开始-->
+            <div class="content_document_project">
+                <!--项目左栏开始-->
+                <div class="content_document_project_left">
+                    <div class="content_document_project_left_title">&nbsp;&nbsp;&nbsp;第一组项目</div>
+                    <div class="content_document_project_left_tab">
+                        <input id="tab_1" type="radio" name="project" checked><!--使用 name 属性定义的单选按钮组 (具有相同名称的单选按钮 属于同一组)-->
+                        <label for="tab_1">项目一</label>
+                        <input id="tab_2" type="radio" name="project">
+                        <label for="tab_2">项目二</label>
+                        <input id="tab_3" type="radio" name="project">
+                        <label for="tab_3">项目三</label>
+                        <input id="tab_4" type="radio" name="project">
+                        <label for="tab_4">项目四</label>
+                        <input id="tab_5" type="radio" name="project">
+                        <label for="tab_5">项目五</label>
+                        <section id="content_document_project_left_tab_1">
+                            <table>
+                                <tr>
+                                    <td>购买材料一</td>
+                                    <td>购买材料二</td>
+                                    <td>购买材料三</td>
+                                    <td>购买材料四</td>
+                                </tr>
+                                <tr>
+                                    <td>购买材料一</td>
+                                    <td>购买材料二</td>
+                                    <td>购买材料三</td>
+                                    <td>购买材料四</td>
+                                </tr>
+                                <tr>
+                                    <td>购买材料一</td>
+                                    <td>购买材料二</td>
+                                    <td>购买材料三</td>
+                                    <td>购买材料四</td>
+                                </tr>
+                                <tr>
+                                    <td>购买材料一</td>
+                                    <td>购买材料二</td>
+                                    <td>购买材料三</td>
+                                    <td>购买材料四</td>
+                                </tr>
+                                <tr>
+                                    <td>购买材料一</td>
+                                    <td>购买材料二</td>
+                                    <td>购买材料三</td>
+                                    <td>购买材料四</td>
+                                </tr>
+                                <tr>
+                                    <td>购买材料一</td>
+                                    <td>购买材料二</td>
+                                    <td>购买材料三</td>
+                                    <td>购买材料四</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section id="content_document_project_left_tab_2">
+                            <table>
+                                <tr>
+                                    <td>买材料一</td>
+                                    <td>买材料二</td>
+                                    <td>买材料三</td>
+                                    <td>买材料四</td>
+                                </tr>
+                                <tr>
+                                    <td>买材料一</td>
+                                    <td>买材料二</td>
+                                    <td>买材料三</td>
+                                    <td>买材料四</td>
+                                </tr>
+                                <tr>
+                                    <td>买材料一</td>
+                                    <td>买材料二</td>
+                                    <td>买材料三</td>
+                                    <td>买材料四</td>
+                                </tr>
+                                <tr>
+                                    <td>买材料一</td>
+                                    <td>买材料二</td>
+                                    <td>买材料三</td>
+                                    <td>买材料四</td>
+                                </tr>
+                                <tr>
+                                    <td>买材料一</td>
+                                    <td>买材料二</td>
+                                    <td>买材料三</td>
+                                    <td>买材料四</td>
+                                </tr>
+                                <tr>
+                                    <td>买材料一</td>
+                                    <td>买材料二</td>
+                                    <td>买材料三</td>
+                                    <td>买材料四</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section id="content_document_project_left_tab_3">
+                            <table>
+                                <tr>
+                                    <td>购买料一</td>
+                                    <td>购买料二</td>
+                                    <td>购买料三</td>
+                                    <td>购买料四</td>
+                                </tr>
+                                <tr>
+                                    <td>购买料一</td>
+                                    <td>购买料二</td>
+                                    <td>购买料三</td>
+                                    <td>购买料四</td>
+                                </tr>
+                                <tr>
+                                    <td>购买料一</td>
+                                    <td>购买料二</td>
+                                    <td>购买料三</td>
+                                    <td>购买料四</td>
+                                </tr>
+                                <tr>
+                                    <td>购买料一</td>
+                                    <td>购买料二</td>
+                                    <td>购买料三</td>
+                                    <td>购买料四</td>
+                                </tr>
+                                <tr>
+                                    <td>购买料一</td>
+                                    <td>购买料二</td>
+                                    <td>购买料三</td>
+                                    <td>购买料四</td>
+                                </tr>
+                                <tr>
+                                    <td>购买料一</td>
+                                    <td>购买料二</td>
+                                    <td>购买料三</td>
+                                    <td>购买料四</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section id="content_document_project_left_tab_4">
+                            <table>
+                                <tr>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                </tr>
+                                <tr>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                </tr>
+                                <tr>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                </tr>
+                                <tr>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                </tr>
+                                <tr>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                </tr>
+                                <tr>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                    <td>购买材料</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section id="content_document_project_left_tab_5">
+                            <table>
+                                <tr>
+                                    <td>料一</td>
+                                    <td>料二</td>
+                                    <td>料三</td>
+                                    <td>料四</td>
+                                </tr>
+                                <tr>
+                                    <td>料一</td>
+                                    <td>料二</td>
+                                    <td>料三</td>
+                                    <td>料四</td>
+                                </tr>
+                                <tr>
+                                    <td>料一</td>
+                                    <td>料二</td>
+                                    <td>料三</td>
+                                    <td>料四</td>
+                                </tr>
+                                <tr>
+                                    <td>料一</td>
+                                    <td>料二</td>
+                                    <td>料三</td>
+                                    <td>料四</td>
+                                </tr>
+                                <tr>
+                                    <td>料一</td>
+                                    <td>料二</td>
+                                    <td>料三</td>
+                                    <td>料四</td>
+                                </tr>
+                                <tr>
+                                    <td>料一</td>
+                                    <td>料二</td>
+                                    <td>料三</td>
+                                    <td>料四</td>
+                                </tr>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+                <!--项目左栏结束-->
+                <!--项目右栏开始-->
+                <div class="content_document_project_right">
+                    <div class="content_document_project_right_title">&nbsp;&nbsp;&nbsp;第一组项目</div>
+                    <div class="content_document_project_right_detail">
+                        <div class="content_document_project_right_detail_sheet">
+                            <h3 class="content_document_project_right_detail_sheet_title">标题</h3>
+                            <p class="content_document_project_right_detail_sheet_project">项目报表三</p>
+                            <div class="content_document_project_right_detail_sheet_price">
+                                <h3 class="sheet_price">价格</h3>
+                                <span class="sheet_num">￥158</span>
+                            </div>
+                            <div class="content_document_project_right_detail_sheet_responsible">
+                                <h3 class="sheet_responsible">负责人</h3>
+                                <span class="sheet_name">小A</span>
+                            </div>
+                            <h3 class="content_document_project_right_detail_sheet_detail">详细描述</h3>
+                            <p class="content_document_project_right_detail_sheet_p">该项目目前负责人是......</p>
+                        </div>
+                        <input type="checkbox" name="agree" id="agree" checked>
+                        <label for="agree">遵守保密协议</label>
+                        <div class="content_document_project_right_detail_search_button">搜索</div>
+                    </div>
+                </div>
+                <!--项目右栏结束-->
+            </div>
+            <!--组项目部分结束-->
+            <!--内容底部开始-->
+            <div class="content_document_bottom">
+                <!--内容底部_左部日历开始-->
+                <div class="content_document_bottom_calendar">
+                    <div class="content_document_bottom_calendar_title">&nbsp;&nbsp;&nbsp;日历</div>
+                    <div class="content_document_bottom_calendar_detail">
+                        <select class="calendar_detail_select">
+                            <option>2017年</option>
+                            <option>2016年</option>
+                            <option>2015年</option>
+                            <option>2014年</option>
+                            <option>2013年</option>
+                            <option>2012年</option>
+                        </select>
+                        <select class="calendar_detail_mouth">
+                            <option>1月</option>
+                            <option>2月</option>
+                            <option>3月</option>
+                            <option>4月</option>
+                            <option>5月</option>
+                            <option>6月</option>
+                            <option>7月</option>
+                            <option>8月</option>
+                            <option>9月</option>
+                            <option>10月</option>
+                            <option>11月</option>
+                            <option>12月</option>
+                        </select>
+                        <select class="calendar_detail_pointer">
+                            <option>标注日期</option>
+                            <option>标注日期</option>
+                            <option>标注日期</option>
+                            <option>标注日期</option>
+                            <option>标注日期</option>
+                            <option>标注日期</option>
+                        </select>
+                        <div class="content_document_bottom_calendar_detail_reuturn">返回今天</div>
+                        <span class="calendar_detail_line"></span>
+                        <ul class="content_document_bottom_calendar_detail_week">
+                            <li class="calendar_detail_week_list">一</li>
+                            <li class="calendar_detail_week_list">二</li>
+                            <li class="calendar_detail_week_list">三</li>
+                            <li class="calendar_detail_week_list">四</li>
+                            <li class="calendar_detail_week_list">五</li>
+                            <li class="calendar_detail_week_list">六</li>
+                            <li class="calendar_detail_week_list">日</li>
+                        </ul>
+                        <ul class="content_document_bottom_calendar_detail_date">
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum"></span>
+                                <span class="calendar_detail_date_list_tra"></span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum"></span>
+                                <span class="calendar_detail_date_list_tra"></span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum"></span>
+                                <span class="calendar_detail_date_list_tra"></span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum"></span>
+                                <span class="calendar_detail_date_list_tra"></span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">1</span>
+                                <span class="calendar_detail_date_list_tra">愚人节</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">2</span>
+                                <span class="calendar_detail_date_list_tra">初五</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">3</span>
+                                <span class="calendar_detail_date_list_tra">初六</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">4</span>
+                                <span class="calendar_detail_date_list_tra">初七</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">5</span>
+                                <span class="calendar_detail_date_list_tra">清明</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">6</span>
+                                <span class="calendar_detail_date_list_tra">初九</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">7</span>
+                                <span class="calendar_detail_date_list_tra">三月</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">8</span>
+                                <span class="calendar_detail_date_list_tra">初二</span>
+                            </li>
+                            <li class="calendar_detail_date_list selected">
+                                <span class="calendar_detail_date_list_datenum">9</span>
+                                <span class="calendar_detail_date_list_tra">初三</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">10</span>
+                                <span class="calendar_detail_date_list_tra">初四</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">11</span>
+                                <span class="calendar_detail_date_list_tra">初五</span>
+                            </li>
+                            <li class="calendar_detail_date_list selected">
+                                <span class="calendar_detail_date_list_datenum">12</span>
+                                <span class="calendar_detail_date_list_tra">初六</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">13</span>
+                                <span class="calendar_detail_date_list_tra">初七</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">14</span>
+                                <span class="calendar_detail_date_list_tra">初八</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">15</span>
+                                <span class="calendar_detail_date_list_tra">初九</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">16</span>
+                                <span class="calendar_detail_date_list_tra">初十</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">17</span>
+                                <span class="calendar_detail_date_list_tra">十一</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">18</span>
+                                <span class="calendar_detail_date_list_tra">十二</span>
+                            </li>
+                            <li class="calendar_detail_date_list selected">
+                                <span class="calendar_detail_date_list_datenum">19</span>
+                                <span class="calendar_detail_date_list_tra">十三</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">20</span>
+                                <span class="calendar_detail_date_list_tra">十四</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">21</span>
+                                <span class="calendar_detail_date_list_tra">十五</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">22</span>
+                                <span class="calendar_detail_date_list_tra">十六</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">23</span>
+                                <span class="calendar_detail_date_list_tra">十七</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">24</span>
+                                <span class="calendar_detail_date_list_tra">十八</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">25</span>
+                                <span class="calendar_detail_date_list_tra">十九</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">26</span>
+                                <span class="calendar_detail_date_list_tra">廿十</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">27</span>
+                                <span class="calendar_detail_date_list_tra">廿一</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">28</span>
+                                <span class="calendar_detail_date_list_tra">廿二</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">29</span>
+                                <span class="calendar_detail_date_list_tra">廿三</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum">30</span>
+                                <span class="calendar_detail_date_list_tra">廿四</span>
+                            </li>
+                            <li class="calendar_detail_date_list">
+                                <span class="calendar_detail_date_list_datenum"></span>
+                                <span class="calendar_detail_date_list_tra"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--内容底部_左部日历结束-->
+                <!--内容底部_右部品牌榜开始-->
+                <div class="content_document_bottom_ranking">
+                    <div class="content_document_bottom_ranking_title">&nbsp;&nbsp;&nbsp;汽车品牌哦排行榜</div>
+                    <table class="content_document_bottom_raking_table">
+                        <tr>
+                            <td class="ranking_num">排名</td>
+                            <td class="ranking_brand">品牌</td>
+                            <td class="ranking_index">搜索指数</td>
+                        </tr>
+                        <tr>
+                            <td class="ranking_num">1</td>
+                            <td class="ranking_brand">大众</td>
+                            <td class="ranking_index">
+                                <span class="ranking_index_num">999999</span>
+                                <div class="ranking_index_num_line">
+                                    <span class="ranking_index_num_line_rate dazhong"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ranking_num">2</td>
+                            <td class="ranking_brand">丰田</td>
+                            <td class="ranking_index">
+                                <span class="ranking_index_num">888888</span>
+                                <div class="ranking_index_num_line">
+                                    <span class="ranking_index_num_line_rate fengtian"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ranking_num">3</td>
+                            <td class="ranking_brand">奥迪</td>
+                            <td class="ranking_index">
+                                <span class="ranking_index_num">777777</span>
+                                <div class="ranking_index_num_line">
+                                    <span class="ranking_index_num_line_rate aodi"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ranking_num">4</td>
+                            <td class="ranking_brand">本田</td>
+                            <td class="ranking_index">
+                                <span class="ranking_index_num">666666</span>
+                                <div class="ranking_index_num_line">
+                                    <span class="ranking_index_num_line_rate bentian"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ranking_num">5</td>
+                            <td class="ranking_brand">福特</td>
+                            <td class="ranking_index">
+                                <span class="ranking_index_num">555555</span>
+                                <div class="ranking_index_num_line">
+                                    <span class="ranking_index_num_line_rate fute"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ranking_num">6</td>
+                            <td class="ranking_brand">宝马</td>
+                            <td class="ranking_index">
+                                <span class="ranking_index_num">444444</span>
+                                <div class="ranking_index_num_line">
+                                    <span class="ranking_index_num_line_rate xiandai baoma"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ranking_num">7</td>
+                            <td class="ranking_brand">现代</td>
+                            <td class="ranking_index">
+                                <span class="ranking_index_num">333333</span>
+                                <div class="ranking_index_num_line">
+                                    <span class="ranking_index_num_line_rate xiandai"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ranking_num">8</td>
+                            <td class="ranking_brand">起亚</td>
+                            <td class="ranking_index">
+                                <span class="ranking_index_num">222222</span>
+                                <div class="ranking_index_num_line">
+                                    <span class="ranking_index_num_line_rate qiya"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ranking_num">9</td>
+                            <td class="ranking_brand">奔驰</td>
+                            <td class="ranking_index">
+                                <span class="ranking_index_num">111111</span>
+                                <div class="ranking_index_num_line">
+                                    <span class="ranking_index_num_line_rate benchi"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ranking_num">10</td>
+                            <td class="ranking_brand">别克</td>
+                            <td class="ranking_index">
+                                <span class="ranking_index_num">100000</span>
+                                <div class="ranking_index_num_line">
+                                    <span class="ranking_index_num_line_rate bieke"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--内容底部_右部品牌榜结束-->
+            </div>
+            <!--内容底部结束-->
+        </div>
+        <!--文档内容结束-->
+    </div>
+    <!--主体内容结束-->
+</div>
+<!--主体结束-->
 </body>
 </html>
