@@ -1,10 +1,401 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>hc11</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <style>
+        html, body {
+            /* 设计页面宽度为1000px ,rem为 100px */
+            font-size: calc(100vw / 10);
+        }
+        body, ul, li, a, h5, div, section, p, input, span, img {
+            margin: 0;
+            padding: 0;
+            font-size: 0.2rem;
+            font-family: Arial,Verdana,Sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            background: #fff;
+            font-size: 0.3rem;/*body正常字体为30px*/
+        }
+        a {
+            text-decoration: none;
+        }
+        li {
+            list-style:none;
+        }
+        /* .wrap */
+        .wrap {
+            width: 100%;
+            abackground: #aec;
+            position: relative;
+        }
+        /* separator*/
+        .sep {
+            width: 100%;
+            height: 0.3rem;
+            background: #f5f5f5;
+            position: relative;
+        }
+
+        /* header */
+        header {
+            width: 100%;
+            height: 1.1rem;
+            background: #91d4da;
+            position: relative;
+        }
+        .title {
+            color: #fff;
+
+            font-size: .36rem;
+            line-height: 1.1rem;
+            height: 1.1rem;
+            text-align: center;
+        }
+        .back {
+            color: #fff;
+            font-size: .35rem;
+            position: relative;
+            top: -0.77rem;
+            left: 0.1rem;
+        }
+        /* sec1 */
+        .sec1 {
+            width: 100%;
+            height: 13.85rem;
+            abackground: #aed;
+            position: relative;
+        }
+        .nav {
+            width: 100%;
+            height: 1.15rem;
+            font-size: 0;
+            abackground: #234;
+        }
+        .navs {
+            display: inline-block;
+            width: 20%;
+            height: 1.15rem;
+            line-height: 1.15rem;
+            font-size: 0.3rem;
+            color: #000;
+            text-align: center;
+        }
+        .navs:hover {
+            border-bottom: 0.05rem solid #91d4da;
+        }
+        .pic {
+            width: 100%;
+            height: 5.5rem;
+            background: url(../img/pic.png);
+            background-size:cover;
+        }
+        .tags {
+            width: 100%;
+            height: 3rem;
+            abackground: #a9a;
+            font-size: 0;
+        }
+        .tag {
+            display: inline-block;
+            width: 20%;
+            height: 3rem;
+            aline-height: 3rem;
+            font-size: 0.3rem;
+            color: #000;
+            text-align: center;
+        }
+        .tag-pic {
+            display: inline-block;
+            width: 1.2rem;
+            margin: 0.45rem;
+            height: 1.2rem;
+            background: #91d4da;
+            border-radius: 0.6rem;
+            position: relative;
+        }
+        .tag-pic::before {
+            content:attr(data-text);
+            display: inline-block;
+            height: 1.2rem;
+            line-height: 1.2rem;
+            font-size: 0.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        .tag-pic:hover {
+            background-image: url(../img/t1.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        .tag-pic:hover::before {
+            color: transparent;
+        }
+        .tag-text {
+            font-size: .35rem;
+        }
+        .bottom-title {
+            width: 100%;
+            height: 4.2rem;
+            abackground: #ac4;
+            padding: 0 0.5rem;
+        }
+        .bt-ul {
+            border-top: 0.02rem solid #d4d4d4;
+            padding:  0.5rem 0;
+            height:   100%;
+            font-size:  0;
+        }
+        .bt-li {
+            width:  33%;
+            height:  100%;
+            abackground: #e5d;
+            float: left;
+            text-align: center;
+        }
+        .bt-li:not(:last-child) {
+            border-right: 0.02rem solid #d4d4d4;
+        }
+        .bt-pic {
+            display: inline-block;
+            width:  2rem;
+            height:  2rem;
+            margin: 0.05rem auto;
+        }
+        .bt-pic {
+            background: url(../img/t3.png);
+            background-size: 100% 100%;
+        }
+        .bt-tl {
+            font-size:  0.45rem;
+        }
+        .bt-p {
+            font-size:  0.35rem;
+            color: #5f5f5f;
+        }
+        /* sec2 */
+        .sec2 {
+            width: 100%;
+            height: 6.6rem;
+            abackground: #fed;
+            position: relative;
+            padding: 0 0.5rem;
+        }
+        .sec2-tl {
+            color: #6c6c6c;
+            font-size: 0.36rem;
+            height: 0.96rem;
+            line-height: 0.96rem;
+            border-bottom: 0.02rem solid #d4d4d4;
+        }
+        .sec2-cont {
+            height: 2.77rem;
+            padding: 0.35rem 0;
+            position: relative;
+        }
+        .sec2-pic {
+            display: inline-block;
+            width: 1.95rem;
+            height: 1.8rem;
+            border: 0.02rem solid #fdb431;
+            background-image: url(../img/t4.png);
+            background-size:100% 100%;
+            position: absolute;
+        }
+        .sec2-ul {
+            awidth: 100%;
+            margin-left: 1.95rem;
+            position: relative;
+            atop: -1.8rem;
+        }
+        .sec2-ul li {
+            float: left;
+            width: 50%;
+            color: #5c5c5c;
+            text-align: center;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            font-size: 0.25rem;
+        }
+        /* sec3 */
+        .sec3 {
+            width: 100%;
+            height: 6.5rem;
+            abackground: #ee3;
+            position: relative;
+        }
+        .art {
+            height: 2rem;
+            padding: 0 0.5rem;
+            border-bottom: 0.02rem solid #d4d4d4;
+        }
+        .art-pic {
+            display: inline-block;
+            width: 2.3rem;
+            height: 1.6rem;
+            margin: 0.2rem 0;
+            border: 0.02rem solid #e4e4e4;
+            background-image: url(../img/t2.png);
+        }
+        .art-tl {
+            font-size: .35rem;
+            margin-left: 2.7rem;
+            position: relative;
+            top: -1.6rem;
+            color: #656565;
+        }
+        .art-time {
+            font-size: 0.3rem;
+            margin-left: 2.7rem;
+            position: relative;
+            top: -1.1rem;
+            color: #c6c6c6;
+        }
+        /* footer */
+        footer {
+            width: 100%;
+            height: 1.1rem;
+            background: #91d4da;
+            position: relative;
+        }
+        .copy {
+            height: 1.1rem;
+            line-height: 1.1rem;
+            font-size: 0.3rem;
+            color: #eee;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-
+<section class="wrap">
+    <header>
+        <h5 class="title">这是标题</h5>
+        <a class="back"> < 返回</a>
+    </header>
+    <section class="sec1">
+        <div class="nav">
+            <a class="navs">导航</a>
+            <a class="navs">导航</a>
+            <a class="navs">导航</a>
+            <a class="navs">导航</a>
+            <a class="navs">导航</a>
+        </div>
+        <div class="pic"></div>
+        <div class="tags">
+            <div class="tag">
+                <a class="tag-pic" data-text="H"></a>
+                <span class="tag-text">标签</span>
+            </div>
+            <div class="tag">
+                <a class="tag-pic" data-text="E"></a>
+                <span class="tag-text">标签</span>
+            </div>
+            <div class="tag">
+                <a class="tag-pic" data-text="L"></a>
+                <span class="tag-text">标签</span>
+            </div>
+            <div class="tag">
+                <a class="tag-pic" data-text="L"></a>
+                <span class="tag-text">标签</span>
+            </div>
+            <div class="tag">
+                <a class="tag-pic" data-text="O"></a>
+                <span class="tag-text">标签</span>
+            </div>
+        </div>
+        <div class="bottom-title">
+            <ul class="bt-ul">
+                <li class="bt-li">
+                    <a class="bt-pic"></a>
+                    <h5 class="bt-tl">分栏一</h5>
+                    <p class="bt-p">分栏小标题</p>
+                </li>
+                <li class="bt-li">
+                    <a class="bt-pic"></a>
+                    <h5 class="bt-tl">分栏一</h5>
+                    <p class="bt-p">分栏小标题</p>
+                </li>
+                <li class="bt-li">
+                    <a class="bt-pic"></a>
+                    <h5 class="bt-tl">分栏一</h5>
+                    <p class="bt-p">分栏小标题</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="sep"></div>
+    <section class="sec2">
+        <h5 class="sec2-tl">模块一</h5>
+        <div class="sec2-cont">
+            <a class="sec2-pic"></a>
+            <ul class="sec2-ul">
+                <li>这是文案</li>
+                <li>这是文案</li>
+                <li>这是文案</li>
+                <li>这是文案</li>
+            </ul>
+        </div>
+        <div class="sec2-cont">
+            <a class="sec2-pic"></a>
+            <ul class="sec2-ul">
+                <li>这是文案</li>
+                <li>这是文案</li>
+                <li>这是文案</li>
+                <li>这是文案</li>
+            </ul>
+        </div>
+    </section>
+    <div class="sep"></div>
+    <section class="sec2">
+        <h5 class="sec2-tl">模块二</h5>
+        <div class="sec2-cont">
+            <a class="sec2-pic"></a>
+            <ul class="sec2-ul">
+                <li>这是文案</li>
+                <li>这是文案</li>
+                <li>这是文案</li>
+                <li>这是文案</li>
+            </ul>
+        </div>
+        <div class="sec2-cont">
+            <a class="sec2-pic"></a>
+            <ul class="sec2-ul">
+                <li>这是文案</li>
+                <li>这是文案</li>
+                <li>这是文案</li>
+                <li>这是文案</li>
+            </ul>
+        </div>
+    </section>
+    <div class="sep"></div>
+    <section class="sec3">
+        <div class="art">
+            <a class="art-pic"></a>
+            <h5 class="art-tl">这是文章标题</h5>
+            <p class="art-time">发表时间 6分钟前</p>
+        </div>
+        <div class="art">
+            <a class="art-pic"></a>
+            <h5 class="art-tl">这是文章标题</h5>
+            <p class="art-time">发表时间 6分钟前</p>
+        </div>
+        <div class="art">
+            <a class="art-pic"></a>
+            <h5 class="art-tl">这是文章标题</h5>
+            <p class="art-time">发表时间 6分钟前</p>
+        </div>
+    </section>
+    <div class="sep"></div>
+    <footer>
+        <p class="copy">
+            COPYRIGHT @ An Fang
+        </p>
+    </footer>
+</section>
 </body>
-</html>
