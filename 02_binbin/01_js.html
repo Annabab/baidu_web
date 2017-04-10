@@ -14,10 +14,11 @@
 <script type="text/javascript">
 
     (function() {
-        document.getElementById("#button"),'click',function(){
-            var aaa=document.getElementById("#aqi-input").val();
-            document.getElementById("#aqi-display").val(aaa.innerHTML);
-        };
+        var   btn = document.getElementById('button');
+        btn.addEventListener('click',function(){
+            var num = document.getElementById('aqi-input').value;
+            document.getElementById('aqi-display').innerHTML = num;
+        });
     })();
 </script>
 </body>
