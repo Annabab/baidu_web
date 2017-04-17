@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>binbin_5</title>
+    <meta charset="utf-8">
+</head>
+<style type="text/css">
+    #btn{
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .queue-element{
+        background-color: orange;
+        width: 30px;
+        float: left;
+        text-align: center;
+        margin: 5px;
+    }
+    #queue{
+        margin-top: 20px;
+
+        display: -webkit-flex; /* Safari */
+        display: flex;
+        align-items:flex-end;
+    }
+</style>
+<body>
+<div id="form">
+
+    <input type="textarea" name="num" id="num">
+    <div id="btn" class="row">
+        <button id="left_in">左侧入队</button>
+        <button id="right_in">右侧入队</button>
+        <button id="left_out">左侧出队</button>
+        <button id="right_out">右侧入队</button>
+        <button id="sort">排序</button>
+    </div>
+
+</div>
+
+<div id="queue"></div>
+
+</body>
+<script type="text/javascript">
+    /*页面没有加载全时可能会有bug，这是因为没有在最开始引入js*/
+    var value = []; //用来存储队列中的数据，此数组中数据顺序与html元素顺序一一对应
+    function getnum(){
+        var a = document.getElementById("num").value;
+        return a;
+    }
+    function createElement(){
+        var queue = document.getElementById("queue");
+        var elementDiv = document.createElement("div");
+        elementDiv.setAttribute("class","queue-element");
+        if(!isNaN(getnum())){
+            if(Number(getnum()) < 10 || Number(getnum()) > 100){
+                alert("数据值应在10-100之间！");
+            }else{
+                var heightNum = Number(getnum())*5;
+                var height = heightNum.toString() + "px";
+                elementDiv.style.height = height;
+                return elementDiv;
+            }
+        }else{
+            alert("无数据");
+        }
+
+
+    }
+    function right_in(){
+        if(createElement()){
+            queue.appendChild(createElement());
+        }
+        value.push(getnum());
+    }
+    function left_in(){
+        if(createElement()){
+            if(!document.getElementById("queue").firstChild){
+                queue.appendChild(createElement());
+            }else{
+                queue.insertBefore(createElement(),document.getElementById("queue").firstChild)
+            }
+        }
+        value.unshift(getnum());
+    }
+    function left_out(){
+        var firstChild = document.getElementById("queue").firstChild;
+        var queue = document.getElementById("queue");
+        if(firstChild){
+            alert(value[0]);
+            queue.removeChild(queue.firstChild);
+            value.shift();
+        }else{
+            alert("队列中无数据");
+        }
+    }
+    function right_out(){
+        var firstChild = document.getElementById("queue").firstChild;
+        var queue = document.getElementById("queue");
+        if(firstChild){
+            alert(value[value.length-1]);
+            queue.removeChild(queue.lastChild);
+            value.pop();
+        }else{
+            alert("队列中无数据");
+        }
+    }
+    function changeElement(e1,e2){//把e2元素插入到e1元素的前面，调用此函数时必须同步改变value数组的值，确保html元素顺序与value数组元素顺序一致
+        var parent = document.getElementById("queue");
+        parent.insertBefore(e2,e1);
+
+    }
+    function sort(){
+        if(value[0] != undefined){
+            var i,j;
+            for(i = 0; i < value.length; i++){
+                for(j = 0; j < value.length - i - 1; j++){
+                    if(Number(value[j]) < Number(value[j+1])){  //注意value中的值为string类型，需要转化成number类型才可以比较
+                        var e1 = document.getElementById("queue").childNodes[j];
+                        var e2 = document.getElementById("queue").childNodes[j+1];
+                        changeElement(e1,e2);//交换html元素
+                        //更新value数组的值
+                        var a = value[j];
+                        value[j] = value[j+1];
+                        value[j+1] = a;
+                    }
+                }
+            }
+
+        }else{
+            alert("没有数据！");
+        }
+    }
+    document.getElementById("right_in").addEventListener("click",right_in,false);
+    document.getElementById("left_in").addEventListener("click",left_in,false);
+    document.getElementById("left_out").addEventListener("click",left_out,false);
+    document.getElementById("right_out").addEventListener("click",right_out,false);
+    document.getElementById("sort").addEventListener("click",sort,false);
+
+</script>
+</html>

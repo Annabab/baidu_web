@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>binbin_4</title>
+    <meta charset="utf-8">
+</head>
+<style type="text/css">
+    #btn{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .queue-element{
+        background-color: orange;
+        width: 150px;
+        height: 30px;
+        float: left;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 4px;
+        margin: 10px;
+    }
+    #queue{
+        margin-top: 20px;
+    }
+</style>
+<body>
+<div id="form">
+
+    <input type="input" name="num" id="num">
+    <div id="btn" class="row">
+        <button id="left_in">左侧入队</button>
+        <button id="right_in">右侧入队</button>
+        <button id="left_out">左侧出队</button>
+        <button id="right_out">右侧入队</button>
+    </div>
+
+</div>
+
+<div id="queue"></div>
+
+</body>
+<script type="text/javascript">
+    function getnum(){
+        var a = document.getElementById("num").value;
+        return a;
+    }
+    function createElement(){
+        var queue = document.getElementById("queue");
+        var elementDiv = document.createElement("div");
+        elementDiv.setAttribute("class","queue-element");
+        if(getnum()!= ''){
+            elementDiv.innerHTML = getnum();
+            return elementDiv;
+        }else{
+            alert("无数据！");
+        }
+    }
+    function right_in(){
+        if(createElement()){
+            queue.appendChild(createElement());
+        }
+    }
+    function left_in(){
+        if(createElement()){
+            if(!document.getElementById("queue").firstChild){
+                queue.appendChild(createElement());
+            }else{
+                queue.insertBefore(createElement(),document.getElementById("queue").firstChild)
+            }
+        }
+    }
+    function left_out(){
+        var firstChild = document.getElementById("queue").firstChild;
+        var queue = document.getElementById("queue");
+        if(firstChild){
+            alert(queue.firstChild.innerHTML);
+            queue.removeChild(queue.firstChild);
+        }else{
+            alert("队列中无数据");
+        }
+    }
+    function right_out(){
+        var firstChild = document.getElementById("queue").firstChild;
+        var queue = document.getElementById("queue");
+        if(firstChild){
+            alert(queue.lastChild.innerHTML);
+            queue.removeChild(queue.lastChild);
+        }else{
+            alert("队列中无数据");
+        }
+    }
+    document.getElementById("right_in").addEventListener("click",right_in,false);
+    document.getElementById("left_in").addEventListener("click",left_in,false);
+    document.getElementById("left_out").addEventListener("click",left_out,false);
+    document.getElementById("right_out").addEventListener("click",right_out,false);
+
+</script>
+</html>

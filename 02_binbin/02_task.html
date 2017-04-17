@@ -42,12 +42,14 @@
         }
         var n = 0;
         var Ul = document.getElementById('aqi-list');
+        var fragment = document.createDocumentFragment();
         for(var i=0;i<tianqi.length;i++){
             var li = document.createElement('li');
             li.innerHTML = "第" + City[n] + "名: " + tianqi[i][0] + "," + tianqi[i][1];
-            Ul.appendChild(li);
+            fragment.appendChild(li);
             n++;
         }
+        Ul.appendChild(fragment);
     })();
 
 </script>
