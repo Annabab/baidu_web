@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff602c2f-d9ee-4341-bf04-b8947c90b40c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02_binbin/04_task.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02_binbin/05_task.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02_binbin/06_html.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pic.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/t.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/t1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/t2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/t3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/t4.png" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02_binbin/07_task.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02_binbin/08_task.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02_binbin/09_task.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/03_yaoyao/01_yaoyao.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/02_binbin/02_task.html" afterPath="$PROJECT_DIR$/02_binbin/02_task.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/02_binbin/01_js.html" afterPath="$PROJECT_DIR$/02_binbin/01_js.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/02_binbin/03_task.html" afterPath="$PROJECT_DIR$/02_binbin/03_task.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/02_binbin/05_task.html" afterPath="$PROJECT_DIR$/02_binbin/05_task.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/02_binbin/06_html.html" afterPath="$PROJECT_DIR$/02_binbin/06_html.html" />
     </list>
     <ignored path="baidu_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,11 +31,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="06_html.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/02_binbin/06_html.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-76.818184">
+              <caret line="109" column="23" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="07_task.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/02_binbin/07_task.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.6666665">
+              <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+              <folding>
+                <element signature="e#2106#2759#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="08_task.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/02_binbin/08_task.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-24.0">
+              <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="09_task.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/02_binbin/09_task.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.5">
+              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="01_js.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/02_binbin/01_js.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.75">
+              <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="02_task.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/02_binbin/02_task.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.0">
+              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="03_task.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/02_binbin/03_task.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-47.5">
+              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="04_task.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/02_binbin/04_task.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.375">
-              <caret line="62" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="98" selection-end-column="7" />
+            <state vertical-scroll-proportion="-6.5">
+              <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -48,18 +116,18 @@
       <file leaf-file-name="05_task.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/02_binbin/05_task.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.75">
-              <caret line="30" column="22" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="22" />
+            <state vertical-scroll-proportion="-20.166666">
+              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="06_html.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/02_binbin/06_html.html">
+      <file leaf-file-name="01_yaoyao.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/03_yaoyao/01_yaoyao.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.2239747">
-              <caret line="141" column="7" selection-start-line="141" selection-start-column="7" selection-end-line="141" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.17350158">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -96,12 +164,16 @@
         <option value="$PROJECT_DIR$/01 html_code/10_task.html" />
         <option value="$PROJECT_DIR$/01 html_code/11_task.html" />
         <option value="$PROJECT_DIR$/01 html_code/12_task.html" />
+        <option value="$PROJECT_DIR$/02_binbin/04_task.html" />
+        <option value="$PROJECT_DIR$/02_binbin/06_html.html" />
+        <option value="$PROJECT_DIR$/02_binbin/07_task.html" />
+        <option value="$PROJECT_DIR$/02_binbin/08_task.html" />
+        <option value="$PROJECT_DIR$/02_binbin/09_task.html" />
         <option value="$PROJECT_DIR$/02_binbin/01_js.html" />
         <option value="$PROJECT_DIR$/02_binbin/02_task.html" />
         <option value="$PROJECT_DIR$/02_binbin/03_task.html" />
-        <option value="$PROJECT_DIR$/02_binbin/04_task.html" />
         <option value="$PROJECT_DIR$/02_binbin/05_task.html" />
-        <option value="$PROJECT_DIR$/02_binbin/06_html.html" />
+        <option value="$PROJECT_DIR$/03_yaoyao/01_yaoyao.html" />
       </list>
     </option>
   </component>
@@ -139,7 +211,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -182,13 +254,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="02_binbin" />
+              <option name="myItemId" value="03_yaoyao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -452,50 +524,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/02_binbin/01_js.html">
+    <entry file="file://$PROJECT_DIR$/02_binbin/06_html.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25236592">
-          <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
+        <state vertical-scroll-proportion="-76.818184">
+          <caret line="109" column="23" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/02_binbin/03_task.html">
+    <entry file="file://$PROJECT_DIR$/02_binbin/07_task.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4637224">
-          <caret line="84" column="19" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
+        <state vertical-scroll-proportion="-5.6666665">
+          <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+          <folding>
+            <element signature="e#2106#2759#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/02_binbin/08_task.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.0">
+          <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/02_binbin/09_task.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.5">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/02_binbin/01_js.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.75">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/02_binbin/02_task.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3785489">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="25" selection-end-column="45" />
+        <state vertical-scroll-proportion="-20.0">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/02_binbin/03_task.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-47.5">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/02_binbin/04_task.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375">
-          <caret line="62" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="98" selection-end-column="7" />
+        <state vertical-scroll-proportion="-6.5">
+          <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/02_binbin/05_task.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.75">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="22" />
+        <state vertical-scroll-proportion="-20.166666">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/02_binbin/06_html.html">
+    <entry file="file://$PROJECT_DIR$/03_yaoyao/01_yaoyao.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2239747">
-          <caret line="141" column="7" selection-start-line="141" selection-start-column="7" selection-end-line="141" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.17350158">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding />
         </state>
       </provider>

@@ -12,9 +12,8 @@
 <div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
 
 <script type="text/javascript">
-
     (function() {
-        var   btn = document.getElementById('button');
+        var btn = document.getElementById('button');
         btn.addEventListener('click',function(){
             var num = document.getElementById('aqi-input').value;
             document.getElementById('aqi-display').innerHTML = num;

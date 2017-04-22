@@ -1,142 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>binbin_5</title>
+    <title>binbin_6</title>
     <meta charset="utf-8">
+    <style type="text/css">
+        .text{
+            height: 200px;
+            width: 100%;
+        }
+        button{
+            float: right;
+        }
+        input{
+            float: right;
+        }
+        #matchText{
+            clear: both;
+        }
+        #matchText p{
+            background: #eee;
+            margin-bottom: 5px;
+        }
+        .match{
+            color: red;
+        }
+    </style>
 </head>
-<style type="text/css">
-    #btn{
-        margin-top: 20px;
-        display: flex;
-        justify-content: flex-start;
-    }
-    .queue-element{
-        background-color: orange;
-        width: 30px;
-        float: left;
-        text-align: center;
-        margin: 5px;
-    }
-    #queue{
-        margin-top: 20px;
 
-        display: -webkit-flex; /* Safari */
-        display: flex;
-        align-items:flex-end;
-    }
-</style>
 <body>
-<div id="form">
-
-    <input type="textarea" name="num" id="num">
-    <div id="btn" class="row">
-        <button id="left_in">左侧入队</button>
-        <button id="right_in">右侧入队</button>
-        <button id="left_out">左侧出队</button>
-        <button id="right_out">右侧入队</button>
-        <button id="sort">排序</button>
+<div class="container">
+    <textarea id="text" class="text" value="1"></textarea>
+    <button id="btn" class="btn btn-info">点击查询</button>
+    <input type="text" name="a" id="input" placeholder="请输入查询内容">
+    <div id="matchText">
+        <h5>以下内容为去除分隔符(,._ | 等)的初始内容，红色标识的内容为符合模糊匹配的内容。</h5>
     </div>
-
 </div>
+<script>
+    var text = document.getElementById("text");
+    var btn = document.getElementById("btn");
+    btn.addEventListener("click",match);
 
-<div id="queue"></div>
-
-</body>
-<script type="text/javascript">
-    /*页面没有加载全时可能会有bug，这是因为没有在最开始引入js*/
-    var value = []; //用来存储队列中的数据，此数组中数据顺序与html元素顺序一一对应
-    function getnum(){
-        var a = document.getElementById("num").value;
-        return a;
-    }
-    function createElement(){
-        var queue = document.getElementById("queue");
-        var elementDiv = document.createElement("div");
-        elementDiv.setAttribute("class","queue-element");
-        if(!isNaN(getnum())){
-            if(Number(getnum()) < 10 || Number(getnum()) > 100){
-                alert("数据值应在10-100之间！");
-            }else{
-                var heightNum = Number(getnum())*5;
-                var height = heightNum.toString() + "px";
-                elementDiv.style.height = height;
-                return elementDiv;
-            }
+    function isValue(str){
+        var asc = str.charCodeAt();
+        if((asc >= 48 && asc <= 57) || 	//如果是数字或者大小写字母
+                (asc >= 65 && asc <= 90) ||
+                (asc >=97 && asc <= 122)){
+            return true;
         }else{
-            alert("无数据");
+            return false
+        }
+    }
+
+    //getArr()用来将文本框中的字符串中的所有分隔符替换成 | 符号，并且返回以 | 作为分隔符分割后的字符串数组
+    function getArr(){
+        //下面用来处理结尾有一个或多个分隔符的情况
+        var spcae = 0; //定义字符串末尾分隔符数量,
+        for(var i1 = text.value.length - 1; !isValue(text.value[i1]) && i1 >= 0; i1--){
+            spcae++;//如果判断到分隔符，则分隔符数量加1
         }
 
-
-    }
-    function right_in(){
-        if(createElement()){
-            queue.appendChild(createElement());
-        }
-        value.push(getnum());
-    }
-    function left_in(){
-        if(createElement()){
-            if(!document.getElementById("queue").firstChild){
-                queue.appendChild(createElement());
+        var textValue = text.value;
+        var newtext = "";//定义字符串副本
+        for(var i = 0; i < textValue.length - spcae; i++){
+            if(isValue(textValue[i])){
+                newtext += textValue[i];
             }else{
-                queue.insertBefore(createElement(),document.getElementById("queue").firstChild)
+                for(i; !isValue(textValue[i+1]); i++){}
+                newtext += "|";
             }
         }
-        value.unshift(getnum());
+        return newtext.split("|");
     }
-    function left_out(){
-        var firstChild = document.getElementById("queue").firstChild;
-        var queue = document.getElementById("queue");
-        if(firstChild){
-            alert(value[0]);
-            queue.removeChild(queue.firstChild);
-            value.shift();
-        }else{
-            alert("队列中无数据");
-        }
-    }
-    function right_out(){
-        var firstChild = document.getElementById("queue").firstChild;
-        var queue = document.getElementById("queue");
-        if(firstChild){
-            alert(value[value.length-1]);
-            queue.removeChild(queue.lastChild);
-            value.pop();
-        }else{
-            alert("队列中无数据");
-        }
-    }
-    function changeElement(e1,e2){//把e2元素插入到e1元素的前面，调用此函数时必须同步改变value数组的值，确保html元素顺序与value数组元素顺序一致
-        var parent = document.getElementById("queue");
-        parent.insertBefore(e2,e1);
 
-    }
-    function sort(){
-        if(value[0] != undefined){
-            var i,j;
-            for(i = 0; i < value.length; i++){
-                for(j = 0; j < value.length - i - 1; j++){
-                    if(Number(value[j]) < Number(value[j+1])){  //注意value中的值为string类型，需要转化成number类型才可以比较
-                        var e1 = document.getElementById("queue").childNodes[j];
-                        var e2 = document.getElementById("queue").childNodes[j+1];
-                        changeElement(e1,e2);//交换html元素
-                        //更新value数组的值
-                        var a = value[j];
-                        value[j] = value[j+1];
-                        value[j+1] = a;
+
+
+    function matchStr(targetstr,str){
+        var a = 0, b = targetstr.indexOf(str[0]);
+        var matchNum = 0;
+        //var lastMatch = 0;//上次匹配成功的位置
+        if(targetstr.length - b < str.length ||
+                targetstr.length < str.length ||
+                str.length == 0){
+            return false;
+        }else{
+            for(a; a < str.length; a++){
+                for(b ; b < targetstr.length; b++){
+                    if(targetstr[b] == str[a]){
+                        b++;
+                        break;
+                    }else{
+                        return false;
                     }
                 }
             }
+            return true;
 
-        }else{
-            alert("没有数据！");
         }
-    }
-    document.getElementById("right_in").addEventListener("click",right_in,false);
-    document.getElementById("left_in").addEventListener("click",left_in,false);
-    document.getElementById("left_out").addEventListener("click",left_out,false);
-    document.getElementById("right_out").addEventListener("click",right_out,false);
-    document.getElementById("sort").addEventListener("click",sort,false);
 
+    }
+
+
+    function match(){
+        var strArr = getArr();		//获取分割后的字符串数组
+        var matchValue = document.getElementById("input").value;	//获取匹配值
+        var indexArr = []; //存储满足匹配条件的值的下标（对应strArr数组）
+
+        indexArr = strArr.map(function(str,idx){
+            if(matchStr(str, matchValue)){
+                return idx;
+            }
+        });
+
+        //获取匹配值下标结束，下面开始拼接html元素
+
+        var pElement = document.createElement("p");
+        var textElement;
+        strArr.forEach(function(str,index){
+            textElement = null;
+            if(indexArr.indexOf(index) != -1){
+                textElement = document.createElement("span");
+                textElement.setAttribute("class","match");
+                textElement1 = document.createTextNode(str + " ");
+                textElement.appendChild(textElement1);
+                pElement.appendChild(textElement);
+            }else{
+                textElement = document.createTextNode(str + " ");
+                pElement.appendChild(textElement);
+            }
+        });
+
+        document.getElementById("matchText").appendChild(pElement);
+
+    }
 </script>
+</body>
+
 </html>

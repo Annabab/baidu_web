@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 09</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: "Microsoft YaHei UI";
+        }
+        #div1{
+            width: 100%;
+            height: 100px;
+            margin: 20px auto 10px auto;
+        }
+        #div1>div{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            border: 2px solid black;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 10px;
+            cursor: pointer;
+        }
+        #div1>div div{
+            display: flex;
+            width: 100%;
+            height:70%;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            align-content: space-around;
+            align-items: center;
+            flew:1;
+            margin:3px;
+            padding: 2px;
+            border: 2px solid black;
+            background-color: #fff;
+            font-size: 10px;
+            cursor: pointer;
+        }
+        input{
+            margin-top: 10px;
+        }
+        .beChecked{
+            background-color: cornflowerblue!important;
+        }
+    </style>
+
+
+
+</head>
+<body>
+<div id="div1">
+    <div>Super
+        <div>Cat
+            <div>Apple
+                <div>Pear</div>
+                <div>Pig</div>
+                <div>Cola</div>
+                <div>Dog</div>
+            </div>
+            <div>Phone</div>
+            <div>ball
+                <div>Book</div>
+                <div>School</div>
+            </div>
+        </div>
+        <div>Note
+            <div>Human
+                <div>Code</div>
+                <div>Woman</div>
+                <div>Man</div>
+            </div>
+            <div>Program
+                <div>Element
+                    <div>Tag</div>
+                </div>
+                <div>Class</div>
+            </div>
+        </div>
+        <div>Fish</div>
+    </div>
+    <input type="button" value="前序" id="qx">
+    <input type="button" value="中序" id="zx" disabled>
+    <input type="button" value="后序" id="hx">
+    <input type="text" placeholder="输入要查询的单词" id="key">
+    <input type="button" value="前序查询" id="qxQuery">
+    <input type="button" value="后序查询" id="hxQuery"><br>
+    <input type="button" value="删除" id="del">
+    <input type="text" placeholder="输入要添加的单词" id="newElement">
+    <input type="button" value="添加" id="add">
+</div>
+
+
+<script>
+    var bllist = [];
+    var zxlist=[];
+    var hxlist=[];
+    var querylist = [];
+    var exist;
+    var markedNode = null;
+    var chekedNode = null;
+    init();
+    function init() {
+        var qx = document.getElementById("qx");
+        var zx = document.getElementById("zx");
+        var hx = document.getElementById("hx");
+        var qxQuery = document.getElementById("qxQuery");
+        var hxQuery = document.getElementById("hxQuery");
+        var delBtn = document.getElementById("del");
+        var addBtn = document.getElementById("add");
+        var root = document.getElementById("div1").children[0];
+        qx.onclick = function () {
+            if(markedNode)
+                markedNode.style.backgroundColor = "#fff";
+            bllist=[];
+            qxList(root);
+            show(bllist);
+        }
+        zx.onclick = function () {
+            if(markedNode)
+                markedNode.style.backgroundColor = "#fff";
+            bllist=[];
+            zxList(root);
+            show(bllist);
+        }
+        hx.onclick = function () {
+            if(markedNode)
+                markedNode.style.backgroundColor = "#fff";
+            bllist=[];
+            hxList(root);
+            bllist.push(root);
+            show(bllist);
+        }
+        qxQuery.onclick = function () {
+            if(markedNode)
+                markedNode.style.backgroundColor = "#fff";
+            querylist = [];
+            exist = false;
+            var key = document.getElementById("key").value;
+            if(key=="")
+                alert("当前输入为空！");
+            else{
+                if(qQueryList(root,key)){
+                    show(querylist,1);
+                }else
+                    alert("查询词不存在！");
+            }
+        }
+        hxQuery.onclick = function () {
+            if(markedNode)
+                markedNode.style.backgroundColor = "#fff";
+            querylist = [];
+            exist = false;
+            var key = document.getElementById("key").value;
+            if(key=="")
+                alert("当前输入为空！");
+            else{
+                if(hQueryList(root,key)){
+                    show(querylist,1);
+                }else
+                    alert("查询词不存在！");
+            }
+        }
+        var divs = document.getElementById("div1").getElementsByTagName("DIV");
+        //为多个div添加点击事件
+        for(var i=0;i<divs.length;i++){
+            divs[i].onclick = function (e) {
+                console.log(e);
+                var pre = document.querySelector(".beChecked");
+                if(e.target!=pre){
+                    e.target.className = "beChecked";
+                    chekedNode = e.target;
+                    if(pre){
+                        pre.className="";
+                    }
+                }
+                else{
+                    pre.className="";
+                    chekedNode = null;
+                }
+                if (e && e.stopPropagation)
+                    e.stopPropagation()
+                else
+                    window.event.cancelBubble=true;
+            }
+        }
+        delBtn.onclick = function () {
+            if(chekedNode)
+                deleteElement(chekedNode);
+            else
+                alert("请先选择一个元素！");
+        }
+        addBtn.onclick = function () {
+            if(chekedNode)
+                addElement(chekedNode);
+            else
+                alert("请先选择一个元素！");
+        }
+    }
+    function qxList(root) {
+        bllist.push(root);
+        var newRoot = [];
+        for(var i=0;i<root.childNodes.length;i++){
+            if(root.childNodes[i].tagName =="DIV"){
+                newRoot.push(root.childNodes[i]);
+            }
+        }
+        if(newRoot.length==0)
+            return true;
+        else{
+            for(var i=0;i<newRoot.length;i++){
+                qxList(newRoot[i]);
+            }
+        }
+    }
+    function hxList(root) {
+        var newRoot = [];
+        for(var i=0;i<root.childNodes.length;i++){
+            if(root.childNodes[i].tagName =="DIV"){
+                newRoot.push(root.childNodes[i]);
+            }
+        }
+        if(newRoot.length==0){
+            ;
+        }
+        else{
+            for(var i=0;i<newRoot.length;i++){
+                hxList(newRoot[i]);
+                bllist.push(newRoot[i]);
+            }
+        }
+    }
+    function zxList(root) {
+        var newRoot = [];
+        for(var i=0;i<root.childNodes.length;i++){
+            if(root.childNodes[i].tagName =="DIV"){
+                newRoot.push(root.childNodes[i]);
+            }
+        }
+        if(newRoot.length==0){
+            bllist.push(root);
+        }
+        else{
+            zxList(newRoot[0]);
+            bllist.push(root);
+            zxList(newRoot[1]);
+        }
+    }
+    function qQueryList(root,key) {
+        var pattern = new RegExp("^"+key,"gi");
+        querylist.push(root);
+        if(pattern.test(root.innerHTML)){
+            exist = true;
+            return exist;
+        }
+        var newRoot = [];
+        for(var i=0;i<root.childNodes.length;i++){
+            if(root.childNodes[i].tagName =="DIV"){
+                newRoot.push(root.childNodes[i]);
+            }
+        }
+        if(newRoot.length==0)
+            return true;
+        else{
+            for(var i=0;i<newRoot.length;i++){
+                if(!exist)
+                    qQueryList(newRoot[i],key);
+                else
+                    return exist;
+            }
+        }
+        return exist;
+    }
+    function hQueryList(root,key) {
+        var newRoot = [];
+        for(var i=0;i<root.childNodes.length;i++){
+            if(root.childNodes[i].tagName =="DIV"){
+                newRoot.push(root.childNodes[i]);
+            }
+        }
+        if(newRoot.length==0){
+            ;
+        }
+        else{
+            for(var i=0;i<newRoot.length;i++){
+                if(hQueryList(newRoot[i]))
+                    return exist;
+                querylist.push(newRoot[i]);
+                var pattern = new RegExp("^"+key,"gi");
+                console.log(pattern.source);
+                if(pattern.test(newRoot[i].innerHTML)){
+                    exist = true;
+                    return exist;
+                }
+            }
+        }
+    }
+    function show(list,type) {
+        var i=0;
+        var h = setInterval(function () {
+            console.log(list.length);
+            if(i<=list.length-1)
+                list[i].style.backgroundColor="red";
+            if(i>=1){
+                if(i == list.length && type == 1)
+                    markedNode = list[i-1];
+                else
+                    list[i-1].style.backgroundColor="#fff";
+            }
+            if(i==list.length)
+                clearInterval(h);
+            i++;
+        },1000);
+    }
+    function deleteElement(node) {
+        var parentNode = node.parentNode;
+        parentNode.removeChild(node);
+        chekedNode = null;
+    }
+    function addElement(node) {
+        var content = document.getElementById("newElement").value;
+        if(content){
+            var newNode = document.createElement("div");
+            newNode.innerHTML =content;
+            node.appendChild(newNode);
+            newNode.onclick = function (e) {
+                console.log(e);
+                var pre = document.querySelector(".beChecked");
+                if(e.target!=pre){
+                    e.target.className = "beChecked";
+                    chekedNode = e.target;
+                    if(pre){
+                        pre.className="";
+                    }
+                }
+                else{
+                    pre.className="";
+                    chekedNode = null;
+                }
+                if (e && e.stopPropagation)
+                    e.stopPropagation()
+                else
+                    window.event.cancelBubble=true;
+            }
+            newNode.click();
+        }
+        else{
+            alert("请输入要添加的单词");
+        }
+    }
+</script>
+</body>
+</html>

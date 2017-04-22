@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>binbin8</title>
+    <meta charset="utf-8">
+
+</head>
+<style type="text/css">
+    #container{
+        height: 400px;
+        margin: 0 auto;
+    }
+    #n1 div{
+        width: 80%;
+        height: 80%;
+        border: 3px solid red;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        margin: 10px;
+    }
+    #n1{
+        width: 100%;
+        border: 3px solid red;
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        align-items: center;
+    }
+    .button{
+        margin-top: 20px;
+    }
+</style>
+<body>
+<div id="container">
+    <div id="n1">n1
+        <div id="n2">n2
+            <div id="n3">n3
+                <div id="n4">n4</div>
+                <div id="n5">n5</div>
+                <div id="n6">n6</div>
+                <div id="n7">n7</div>
+            </div>
+            <div id="n8">n8</div>
+            <div id="n9">n9
+                <div id="n10">n10</div>
+                <div id="n11">n11</div>
+            </div>
+        </div>
+        <div id="n12">n12
+            <div id="n13">n13
+                <div id="n14">n14</div>
+                <div id="n15">n15</div>
+                <div id="n16">n16</div>
+            </div>
+            <div id="n17">n17
+                <div id="n18">n18
+                    <div id="n19">n19
+                    </div>
+                </div>
+                <div id="n20">n20
+                </div>
+            </div>
+        </div>
+        <div id="n21">n21
+        </div>
+    </div>
+</div>
+
+<div class="button">
+    <button id="pre">先根遍历</button>
+    <button id="last">后根遍历</button>
+</div>
+
+<input type="input" name="t" id="searchValue">
+<button id="startSearch">点击查询目标值</button>
+<script>
+    var time = null;
+    var nodeList = [];//存储遍历结果
+    var i = 0;//用来遍历nodeList的计数器，调用changeColor之前一定要先清空！
+
+    function preTraverse(node){
+        if(node != null){
+            nodeList.push(node);
+            for(var i = 0; i < node.children.length; i++){
+                preTraverse(node.children[i]);
+            }
+        }
+
+    }
+
+    function lastTraverse(node){
+        if(node != null){
+
+            for(var i = 0; i < node.children.length; i++){
+                lastTraverse(node.children[i]);
+            }
+            nodeList.push(node);
+        }
+    }
+
+    function changeColor(targetNodeId){
+        time = setInterval(function(){
+            if(i < nodeList.length){
+                //先将目标节点变黑
+                nodeList[i].style.backgroundColor = "orange";
+
+                //再将非目标节点变白
+                nodeList.forEach(function(node){
+                    if(node != nodeList[i]){
+                        node.style.backgroundColor = "#fff";
+                    }
+                });
+                if(targetNodeId){
+                    if(nodeList[i].id == targetNodeId){
+                        clearInterval(time);
+                    }
+                }
+                i++;
+            }else{//让循环多进行一次，最后一次让所有的元素变白
+                if(i == nodeList.length){
+                    nodeList[nodeList.length - 1].style.backgroundColor = "#fff";
+                }
+                clearInterval(time);
+            }
+
+        },500);
+    }
+
+
+
+
+    function startPreTraverse(){
+        nodeList = [];//存储遍历结果
+        i = 0;//用来遍历nodeList的计数器，调用changeColor之前一定要先清空！
+        var node = document.getElementById("n1");
+        clearInterval(time);//如果调用该遍历前调用过其他变
+        time = null;
+        preTraverse(node);//构造nodeList,该数组中存储的为遍历结果
+        changeColor();
+
+    }
+
+
+    function startLastTraverse(){
+        nodeList = [];//存储遍历结果
+        i = 0;//用来遍历nodeList的计数器，调用changeColor之前一定要先清空！
+        var node = document.getElementById("n1");
+        clearInterval(time);//如果调用该遍历前调用过其他变
+        time = null;
+        lastTraverse(node);//构造nodeList,该数组中存储的为遍历结果
+        changeColor();
+    }
+
+    function search(){
+        var targetNodeId = document.getElementById("searchValue").value;
+        if(targetNodeId){
+            nodeList = [];//存储遍历结果
+            i = 0;//用来遍历nodeList的计数器，调用changeColor之前一定要先清空！
+            var node = document.getElementById("n1");
+            clearInterval(time);//如果调用该遍历前调用过其他变
+            time = null;
+            preTraverse(node);
+            changeColor(targetNodeId);
+        }else{
+            alert("请输入n1-n21");
+        }
+
+    }
+
+
+
+    document.getElementById("pre").addEventListener("click",startPreTraverse,false);
+    document.getElementById("last").addEventListener("click",startLastTraverse,false);
+    document.getElementById("startSearch").addEventListener("click",search,false);
+</script>
+</body>
+</html>
