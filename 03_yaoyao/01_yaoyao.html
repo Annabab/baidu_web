@@ -3,14 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        p.hidden{
+            visibility: hidden;
+        }
+        input[type=text]{
+            height: 20px;
+            margin: 0;
+            padding: 2px;
+            outline: 1px solid #888;
+            border: 0;
+            margin-left: 10px;
+        }
+        button{
+            margin-left: 10px;
+            height: 26px;
+        }
+    </style>
 </head>
 <body>
-    <form>
-        <div>
-            <span>xingming</span>
-            <input type="text">
-            <button></button>
-        </div>
-    </form>
+    <table>
+        <tr>
+            <td>
+                <span>名称</span>
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <button type="button" value="验证">验证</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <span class="hidden"></span>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <span>名称</span>
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <button type="button" value="验证">验证</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <span  class="hidden"></span>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <span>名称</span>
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <button type="button" value="验证">验证</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <span  class="hidden"></span>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        var inputs = document.getElementsByTagName('input');
+        var button = document.getElementsByTagName('button');
+        var btn = button[1];
+        btn.onclick = function() {
+            var str = inputs[1].value;
+            var p = document.getElementsByTagName('span')[3];
+            var info = ['必填，长度为4~16个字符','姓名不能为空','名称格式正确'];
+            if(!str){
+                p.innerHTML = info[1];
+                p.className = "";
+                return;
+            }
+            var cl=0,zl=0,l=0;
+            for(var i=0;i<str.length;i++){
+                if(str[i].codePointAt(0)<=0xFF){
+                    cl++;
+                }
+                else{
+                    zl++;
+                }
+            }
+            l = cl+zl*2;
+            if(l>16 || l<4){
+                p.innerHTML = info[0];
+                p.className="";
+                return;
+            }
+            p.innerHTML="";
+            p.className = "hidden";
+        };
+    </script>
 </body>
 </html>

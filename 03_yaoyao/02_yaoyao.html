@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    p{
+        color: #938e8c;
+        font-size: 12px;
+    }
+    p.hidden{
+        visibility: hidden;
+    }
+    input.right {
+        border-color: #75b86b;
+    }
+    input.error{
+        border-color: darksalmon;
+    }
+    p.right{
+        color: #75b86b;
+    }
+    p.error{
+        color:darksalmon;
+    }
+    label{
+        display: inline-block;
+        width: 80px;
+        margin-right:10px ;
+    }
+    input{
+        border: 1px solid #6f7278;
+    }
+</style>
+<body>
+
+<form action="submitPage.html" method="post" >
+    <div><label for="">名称</label><input type="text"><br/><p class="hidden"></p></div>
+    <div><label for="">密码</label><input type="password"><br/><p class="hidden"></p></div>
+    <div><label for="">密码确认</label><input type="password"><br/><p class="hidden"></p></div>
+    <div><label for="">邮箱</label><input type="text"><br/><p class="hidden"></p></div>
+    <input type="submit">
+</form>
+
+<script>
+    var inputs = document.getElementsByTagName("input");
+    var p = document.getElementsByTagName("p");
+    var rights = [false,false,false,false];
+    var form = document.forms[0];
+    inputs[0].onfocus = function () {
+        p[0].innerHTML = "必填，4~16";
+        p[0].className = "";
+    }
+    inputs[0].onblur = function (callback) {
+        var str = this.value;
+        if(!str){
+            p[0].innerHTML = '姓名不能为空';
+            p[0].className = "error";
+            this.className = 'error';
+            rights[0] = false;
+            return;
+        }
+        var cl=0,zl=0,l=0;
+        for(var i=0;i<str.length;i++){
+            if(str[i].codePointAt(0)<=0xFF){
+                cl++;
+            }
+            else{
+                zl++;
+            }
+        }
+        l = cl+zl*2;
+        if(l>16 || l<4){
+            p[0].innerHTML = '长度为4~16个字符';
+            p[0].className = "error";
+            this.className = 'error';
+            rights[0] = false;
+            return;
+        }
+        p[0].innerHTML="名称可用";
+        p[0].className = "right";
+        this.className = 'right';
+        rights[0] = true;
+        if(typeof callback == 'function'){
+            callback();
+        }
+    }
+    inputs[1].onfocus = function () {
+        p[1].innerHTML = "必填，6~20，由字母数字符号组成";
+        p[1].className = "";
+    }
+    inputs[1].onblur = function (callback) {
+        var str = this.value;
+        if(!str){
+            p[1].innerHTML = '密码不能为空';
+            p[1].className = "error";
+            this.className = 'error';
+            rights[1] = false;
+            return;
+        }
+        if(str.length>20 || str.length<6){
+            p[1].innerHTML = '长度为6~20';
+            p[1].className = "error";
+            this.className = 'error';
+            rights[1] = false;
+            return;
+        }
+        if(str.match(/[^a-zA-Z0-9`~!@#\$%\^\&*\(\)\+=\|\{\}':;',\[\].<>/\?~！@#￥%……&*（）——+|{}【】‘；：”“'。，、？]/gi)){
+            //包含以外的字符
+            p[1].innerHTML = '密码只能包含字母数字和符号';
+            p[1].className = "error";
+            this.className = 'error';
+            rights[1] = false;
+            return;
+        }
+        p[1].innerHTML="密码可用";
+        p[1].className = "right";
+        this.className = 'right';
+        if(inputs[2].value!=""){
+            if(inputs[2].value!=str){
+                p[2].innerHTML = '两次输入不一致';
+                p[2].className = "error";
+                inputs[2].className = 'error';
+                rights[2] = false;
+            }
+            else{
+                p[2].innerHTML = '两次输入一致';
+                p[2].className = "right";
+                inputs[2].className = 'right';
+                rights[2] = true;
+            }
+        }
+        if(typeof callback == 'function'){
+            callback();
+        }
+    }
+    inputs[2].onfocus = function () {
+        p[2].innerHTML = "两次输入一致";
+        p[2].className = "";
+    }
+    inputs[2].onblur = function (callback) {
+        var str = this.value;
+        var str0 = inputs[1].value;
+        if(str != str0 ){
+            p[2].innerHTML = '两次输入不一致';
+            p[2].className = "error";
+            this.className = 'error';
+            rights[2] = false;
+            return;
+        }
+        if(!str0){
+            p[2].innerHTML = '密码不能为空';
+            p[2].className = "error";
+            this.className = 'error';
+            rights[2] = false;
+            return;
+        }
+        p[2].innerHTML="两次输入一致";
+        p[2].className = "right";
+        this.className = 'right';
+        rights[2] = true;
+        if(typeof callback == 'function'){
+            callback();
+        }
+    }
+    inputs[3].onfocus = function () {
+        p[3].innerHTML = "";
+        p[3].className = "";
+    }
+    inputs[3].onblur = function (callback) {
+        var str = this.value;
+        if(str){
+            if(str.match(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+/gi)){
+                p[3].innerHTML="邮箱格式正确";
+                p[3].className = "right";
+                this.className = 'right';
+                rights[3] = true;
+                return;
+            }
+            p[3].innerHTML = '邮箱格式错误';
+            p[3].className = "error";
+            this.className = 'error';
+            rights[3] = false;
+        }
+        if(typeof callback == 'function'){
+            callback();
+        }
+    }
+    form.onsubmit = function () {
+        var result = true;
+        for(var i=0;i<inputs.length-1;i++){
+            inputs[i].onblur(function(){
+                if(!rights[i])
+                    result = rights[i];
+                if(i == inputs.length-2){
+                    if(!result){
+                        //alert("输入有误！");
+                        setTimeout(function(){alert("输入有误！")},0);
+                    }
+                    return result;
+                }
+            });
+        }
+        return result;
+    }
+</script>
+</body>
+</html>
